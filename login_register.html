@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sign In / Register</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-danger bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="index.html">Coursaty |</a>
+          <a class="navbar-brand fw-bold" href="index.html">Home</a>
+          <a class="navbar-brand fw-bold" href="#">About</a>
+          <a class="navbar-brand fw-bold" href="login_register.html">Register</a>
+          <a class="navbar-brand fw-bold" href="login_register.html">Login</a>
+          <li class="navbar-brand dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Courses
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Programming</a>
+              <a class="dropdown-item" href="#">AI</a>
+              <a class="dropdown-item" href="#">Web Devlovment</a>
+            </div>
+          </li>
+          <a class="navbar-brand fw-bold" href="#">Cart</a>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mt-5">Sign In / Register</h2>
+                <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="true">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+
+                    <div class="tab-pane fade show active" id="sign-in" role="tabpanel" aria-labelledby="sign-in-tab">
+                        <form class="mt-4">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-4">Sign In</button>
+                        </form>
+                        <p class="text-center mt-3"><a href="#">Forgot your password?</a></p>
+                    </div>
+
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <form class="mt-4">
+                            <div class="form-group">
+                                <label for="reg-email">Email address</label>
+                                <input type="email" class="form-control" id="reg-email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-password">Password</label>
+                                <input type="password" class="form-control" id="reg-password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-confirm-password">Confirm Password</label>
+                                <input type="password" class="form-control" id="reg-confirm-password" placeholder="Confirm Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
