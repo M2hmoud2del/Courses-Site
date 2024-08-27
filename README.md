@@ -1,8 +1,8 @@
 # Courses-Site
 header
-<!-- Footer -->
-<!-- slider -->
-<!-- orderPlaced -->
-<!-- content -->
-<!-- cart -->
-<!-- profile -->
+Footer -->
+slider -->
+orderPlaced -->
+content -->
+cart -->
+profile -->
