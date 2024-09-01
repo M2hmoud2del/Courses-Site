@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Coursaty Website</title>
+</head>
+<body style="background-color: rgb(232, 232, 236);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-danger bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="index.html">Coursaty |</a>
+          <a class="navbar-brand fw-bold" href="index.html">Home</a>
+          <a class="navbar-brand fw-bold" href="#">About</a>
+          <li class="navbar-brand dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Courses
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Programming</a>
+              <a class="dropdown-item" href="#">AI</a>
+              <a class="dropdown-item" href="#">Web Devlovment</a>
+            </div>
+          </li>
+          <a class="navbar-brand fw-bold" id="acc" href="#"><i class="fa-solid fa-user "></i></a>
+        </div>
+        <div class="menu" style="display: none; position: absolute; margin-top: 250px;padding-right: 50px; ;right:5px;border-radius: 10px;border: 1px solid rgb(97, 97, 99) ;background-color: #d4e8eb;">
+          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="profile.html">Profile</a><br>
+          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="mycourses.html">My Courses</a><br>
+          <hr>
+          <a class="navbar-brand fw-bold ml-3 pe-5 w-100 ml-3" href="login_register.html" style="font-weight: 500;">Login / Register</a><br>
+          <a class="navbar-brand fw-bold text-danger pe-5 w-100 ml-3" href="login_register.html" style="font-weight: 500;">Logout</a>
+        </div>
+      </nav>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="js/src.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <div class="outerbox">
+      <div class="box">
+                <img src="img/profile.png" style="width:300px;position: absolute;" alt="">
+                <p style="font-size: xx-large;font-weight: bold;margin-top: 300px;" id="username">Username</p>
+                <div class="para">
+                <p style="font-size: xx-large;font-weight: 350;">First Name: <span style="font-weight: 100;" id="fName">Ahmed</span> </p>
+                <p style="font-size: xx-large;font-weight: 350;">Last Name: <span style="font-weight: 100; " id="lName">Mohamed</span></p>
+                <p style="font-size: xx-large;font-weight: 350;">Phone Number: <span style="font-weight: 100;" id="phone">011494919190</span></p>
+                <p style="font-size: xx-large;font-weight: 350;">Email: <span style="font-weight: 100;" id="email">ahmed2003@gmail.com</span></p>
+                <p style="font-size: xx-large;font-weight: 350;">Country: <span style="font-weight: 100;" id="country">Egypt</span></p>
+                <p style="font-size: xx-large;font-weight: 350;">University: <span style="font-weight: 100;" id="uni">Helwan</span></p>
+      </div></div></div>
+<script>
+    window.onload = function() {
+        let fName = document.getElementById("fName");
+        let lName = document.getElementById("lName");
+        let phone = document.getElementById("phone");
+        let email = document.getElementById("email");
+        let country = document.getElementById("country");
+        let uni = document.getElementById("uni");
+        let username = document.getElementById("username"); // Added username element
+        
+        fName.innerHTML = localStorage.getItem("fName");
+        lName.innerHTML = localStorage.getItem("lName");
+        phone.innerHTML = localStorage.getItem("phone");
+        email.innerHTML = localStorage.getItem("email");
+        country.innerHTML = localStorage.getItem("country");
+        uni.innerHTML = localStorage.getItem("uni");
+        username.innerHTML = localStorage.getItem("username"); // Retrieve and display username
+    }
+    </script>
+</body>
+</html>

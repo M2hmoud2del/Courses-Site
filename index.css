@@ -63,3 +63,30 @@
     font-weight: 600;
     letter-spacing: 1px;
 }
+.outerbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Add any other styling you need for .box */
+}
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff; /* White background for the profile box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 20px;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Max width to limit expansion */
+        }
+.para{
+    margin-top: 10%;
+
+}
+.box img{
+    margin: auto;
+}
+.mycourses .card{
+    box-shadow: 5px 5px 10px gray;
+}

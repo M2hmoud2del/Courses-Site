@@ -11,11 +11,11 @@
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <!-- Navbar -->
-    <nav class="navbar navbar-danger bg-light">
+    <nav class="navbar navbar-danger bg-light" style="position: fixed;z-index: 1000;width: 100%;top: 0px;">
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="index.html">Coursaty |</a>
           <a class="navbar-brand fw-bold" href="index.html">Home</a>
-          <a class="navbar-brand fw-bold" href="#">About</a>
+          <a class="navbar-brand fw-bold" href="#foot" style="transition: color 0.3s ease, transform 0.3s ease;">About</a>
           <li class="navbar-brand dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Courses
@@ -29,15 +29,15 @@
           <a class="navbar-brand fw-bold" id="acc" href="#"><i class="fa-solid fa-user "></i></a>
         </div>
         <div class="menu" style="display: none; position: absolute; margin-top: 250px;padding-right: 50px; ;right:5px;border-radius: 10px;border: 1px solid rgb(97, 97, 99) ;background-color: #d4e8eb;">
-          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="#">Profile</a><br>
-          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="#">My Courses</a><br>
+          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="profile.html">Profile</a><br>
+          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="mycourses.html">My Courses</a><br>
           <hr>
           <a class="navbar-brand fw-bold ml-3 pe-5 w-100 ml-3" href="login_register.html" style="font-weight: 500;">Login / Register</a><br>
-          <a class="navbar-brand fw-bold text-danger pe-5 w-100 ml-3" href="#" style="font-weight: 500;">Logout</a>
+          <a class="navbar-brand fw-bold text-danger pe-5 w-100 ml-3" href="login_register.html" style="font-weight: 500;">Logout</a>
         </div>
       </nav>
       <!--Background Photo-->
-      <div class="cont">
+      <div class="cont" style="margin-top: 120px;">
         <div class="tex">
       <p class="text-start">Start aligned text on all viewport sizes.</p>
 <p class="text-center">Center aligned text on all viewport sizes.</p>
@@ -247,7 +247,7 @@
         </div>
       </div>
     <!-- Footer -->
-    <footer class=" text-center text-lg-start m-3" style="    background-color: #10535c;">
+    <footer class=" text-center text-lg-start m-3" id="foot" style="    background-color: #10535c;">
         <div class="container p-4 text-light">
             <div class="row ">
                 <!-- Company Info -->
