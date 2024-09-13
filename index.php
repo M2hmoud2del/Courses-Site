@@ -15,7 +15,7 @@ include('DBconnection.php'); // Include the database connection file
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?php
-    include('dbConnection.php');include("navbar.php");include("content.html");include("footer.html");
+    include('dbConnection.php');include("navbar.php");include("content.php");include("footer.html");
     ?>
     <!-- orderPlaced -->
     <!-- cart -->
