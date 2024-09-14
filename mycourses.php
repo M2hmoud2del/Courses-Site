@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('DBconnection.php'); // Include the database connection file
+include('DBconnection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,65 +16,66 @@ include('DBconnection.php'); // Include the database connection file
         .card-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center cards horizontally */
-            gap: 15px; /* Space between cards */
+            justify-content: center;
+            gap: 15px;
         }
 
         .card {
-            width: 100%; /* Make cards responsive */
-            max-width: 25rem; /* Maximum width for each card */
+            width: 100%;
+            max-width: 25rem;
         }
 
         @media (min-width: 576px) {
             .card-container {
-                gap: 20px; /* Adjust space between cards for larger screens */
+                gap: 20px;
             }
         }
 
         @media (min-width: 768px) {
             .card-container {
-                justify-content: flex-start; /* Align cards to the start on medium screens */
+                justify-content: flex-start;
             }
         }
 
         @media (min-width: 992px) {
             .card-container {
-                justify-content: space-between; /* Space out cards on large screens */
+                justify-content: space-between;
             }
         }
     </style>
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?=include('navbar.php');?>
-      <div class="container mt-5 bg-light text-center text-lg-start p-5 " style="border-radius: 15px;">
-        <div class="card-container mycourses">
-            <div class="card" >
-                <img class="card-img-top" src="img/Ai-1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+    <?php
+    $user = $_SESSION['user'];
+$user_id = $user['Client_ID'];
+
+$query = "SELECT courses.Course_ID, courses.CourseTitle, courses.Description, courses.Image 
+          FROM courses
+          INNER JOIN coursesmembership ON courses.Course_ID = coursesmembership.course
+          WHERE coursesmembership.client = '$user_id'";
+$result = mysqli_query($conn, $query);
+
+echo '
+    <div class="container mt-5 bg-light text-center text-lg-start p-5" style="border-radius: 15px;">
+        <div class="card-container mycourses">';
+
+while($course = mysqli_fetch_assoc($result)) {
+    echo '
             <div class="card">
-                <img class="card-img-top" src="img/Ai-1.png" alt="Card image cap">
+                <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">' . $course['CourseTitle'] . '</h5>
+                    <p class="card-text">' . $course['Description'] . '</p>
+                    <a href="course_details.php?course_id=' . $course['Course_ID'] . '" class="btn btn-primary">View Course</a>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="img/Ai-1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <!-- Add more cards here -->
+            </div>';
+}
+
+echo '
         </div>
-    </div>
+    </div>';
+?>
     <?=include('footer.html');?>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
       <script src="js/src.js"></script>
