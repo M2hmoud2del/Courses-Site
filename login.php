@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($password === $user['Password']) {
                     // Update session with user data
                     $_SESSION['user'] = $user;
-                    
+                    $_SESSION['message']="Login Succuss";
                     // Redirect to profile.php
                     header('Location: profile.php');
                     exit();
@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $conn->close();
     }
+    $_SESSION['message']=$message;
 }
 header('Location: login_register.php');
 exit();

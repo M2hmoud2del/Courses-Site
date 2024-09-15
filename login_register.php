@@ -1,24 +1,17 @@
+<?php
+session_start(); // Start session to access session variables
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sign In / Register</title>
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Add any additional custom styles here */
-    </style>
 </head>
 <body style="background-color: rgb(232, 232, 236);">
-    <?= include('navbar.php'); ?>
-            <!-- Display message if available -->
-            <?php if (isset($_SESSION['message']) && !empty($_SESSION['message'])): ?>
-            <div class="alert alert-info">
-                <?= $_SESSION['message']; ?>
-                <?php unset($_SESSION['message']); // Clear the message after displaying ?>
-            </div>
-        <?php endif; ?>
+    <?= include("navbar.php");?>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
@@ -49,6 +42,18 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block mt-3" name="login">Sign In</button>
                         </form>
+                                <!-- Display message if available -->
+                        <?php if (isset($_SESSION['message']) && !empty($_SESSION['message']) && $_SESSION['message'] !== "Registration successful!"): ?>
+                            <div class="alert alert-danger mt-2">
+                                <?= $_SESSION['message']; ?>
+                                <?php unset($_SESSION['message']); // Clear the message after displaying ?>
+                        </div>
+                        <?php elseif(isset($_SESSION['message']) && !empty($_SESSION['message'])):?>
+                                <div class="alert alert-success mt-2">
+                                <?= $_SESSION['message']; ?>
+                                <?php unset($_SESSION['message']); // Clear the message after displaying ?>
+                        </div>
+                    <?php endif; ?>
                         <p class="text-center mt-3"><a href="#">Forgot your password?</a></p>
                     </div>
                     
@@ -100,7 +105,7 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript files -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
