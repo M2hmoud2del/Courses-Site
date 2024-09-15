@@ -23,22 +23,26 @@ include('DBconnection.php');
 $query = "SELECT * FROM courses";
 $result = mysqli_query($conn, $query);
 
-echo '<div class="container mt-5">
-        <div class="row">';
+echo '<div class="container-fluid mt-5" id="contentContainer">
+        <div class="row" id="contentRow">';
 
 while($course = mysqli_fetch_assoc($result)) {
     echo '
-        <div class="col-sm-4">
+        <div class="col-md-4 mb-4" id="column">
             <form action="enroll.php" method="post">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image">
-                    <div class="card-body">
-                        <h5 class="card-title">' . $course['CourseTitle'] . '</h5>
-                        <p class="card-text">' . $course['Description'] . '</p>
-                        <p class="card-text">Instructor: ' . $course['Instructor'] . '</p>
-                        <p class="card-text">Price: $' . $course['Price'] . '</p>
-                        <input type="hidden" name="course_id" value="' . $course['Course_ID'] . '">
-                        <button type="submit" class="btn btn-primary add-to-cart" data-name="' . $course['CourseTitle'] . '" data-price="' . $course['Price'] . '">Enroll</button>
+                <div class="card">
+                    <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image" style="height: 180px;">
+                    <div class="card-body d-flex flex-column">
+                        <div>
+                            <h5 class="card-title">' . $course['CourseTitle'] . '</h5>
+                            <p class="card-text">' . $course['Description'] . '</p>
+                            <p class="card-text">Instructor: ' . $course['Instructor'] . '</p>
+                            <p class="card-text">Price: $' . $course['Price'] . '</p>
+                            <input type="hidden" name="course_id" value="' . $course['Course_ID'] . '">
+                        </div>
+                        <div class="mt-auto">
+                            <button type="submit" class="btn btn-primary add-to-cart" data-name="' . $course['CourseTitle'] . '" data-price="' . $course['Price'] . '">Enroll</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -47,4 +51,6 @@ while($course = mysqli_fetch_assoc($result)) {
 
 echo '  </div>
       </div>';
+
+
 ?>

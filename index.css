@@ -90,3 +90,12 @@
 .mycourses .card{
     box-shadow: 5px 5px 10px gray;
 }
+#contentContainer .card{
+    height: 450px;
+    /* margin: 20px; */
+    width: 370px;
+}
+
+#contentContainer{
+    width: 85%;
+} 
