@@ -1,6 +1,10 @@
 <?php
 session_start();
 include('DBconnection.php');
+if (!isset($_SESSION['user'])) {
+    header('Location: login_register.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

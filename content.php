@@ -23,22 +23,26 @@ include('DBconnection.php');
 $query = "SELECT * FROM courses";
 $result = mysqli_query($conn, $query);
 
-$user = $_SESSION['user'];
-$user_id = $user['Client_ID'];
+// Initialize $enrolledCourses as an empty array
+$enrolledCourses = [];
 
-$query = "SELECT course FROM coursesmembership WHERE client = '$user_id'";
-$selectedCourses = mysqli_query($conn, $query);
-$enrolledCourses =[];
-while($course = mysqli_fetch_assoc($selectedCourses)){
-    $enrolledCourses[] = $course['course'];
+// Check if the user session exists
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+    $user_id = $user['Client_ID'];
+    $query = "SELECT course FROM coursesmembership WHERE client = '$user_id'";
+    $selectedCourses = mysqli_query($conn, $query);
+    while ($course = mysqli_fetch_assoc($selectedCourses)) {
+        $enrolledCourses[] = $course['course'];
+    }
 }
 
 echo '<div class="container-fluid mt-5" id="contentContainer">
         <div class="row" id="contentRow">';
-
-while($course = mysqli_fetch_assoc($result)) {
-    if(!in_array($course['Course_ID'],$enrolledCourses)){
-    echo '
+while ($course = mysqli_fetch_assoc($result)) {
+    // Check if the user is not enrolled in this course
+    if (!in_array($course['Course_ID'], $enrolledCourses)) {
+        echo '
         <div class="col-sm-6 col-md-4 mb-4 " id="column">
             <form action="enroll.php" method="post">
                 <div class="card " style="width: 450px; height: 450px;">
