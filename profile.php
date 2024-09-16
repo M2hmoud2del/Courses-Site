@@ -74,8 +74,48 @@ include('DBconnection.php'); // Include the database connection file
                 <p>University: <span><?php echo htmlspecialchars($user['University']); ?></span></p>
             </div>
             <div class="infoButtons mt-5">
-            <button type="button" class="btn btn-info bInfo mr-5">Change Information</button>
-            <button type="button" class="btn btn-danger bPassword">Change Password</button>
+<!--Change Information Modal -->
+<div class="modal fade" id="ChangeInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cInfo_ID">Change Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Change Password Modal -->
+<div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cPass_ID">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+            <button type="button" class="btn btn-info bInfo mr-5" data-toggle="modal" data-target="#ChangeInfo">Change Information</button>
+            <button type="button" class="btn btn-danger bPassword" data-toggle="modal" data-target="#ChangePass">Change Password</button>
             </div>
         </div>
     </div>
