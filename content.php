@@ -24,12 +24,8 @@ $query = "SELECT * FROM courses ORDER BY
 CASE 
     WHEN Category = 'Programming' THEN 1
     WHEN Category = 'Web Development' THEN 2
-    WHEN Category = 'Cybersecurity' THEN 3
-    WHEN Category = 'Design' THEN 4
-    WHEN Category = 'Finance' THEN 5
-    WHEN Category = 'Marketing' THEN 6
-    WHEN Category = 'Blockchain' THEN 7
-    ELSE 8
+    WHEN Category = 'AI' THEN 3
+    ELSE 4
 END, CourseTitle";
 $result = mysqli_query($conn, $query);
 

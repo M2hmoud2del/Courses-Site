@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2024 at 12:45 PM
+-- Generation Time: Sep 16, 2024 at 12:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,7 +58,26 @@ INSERT INTO `courses` (`Course_ID`, `CourseTitle`, `Price`, `Instructor`, `Date`
 (10, 'UI/UX Design', 450, 'Dr. Alice Green', '0000-00-00', '4 Weeks', 'Design user interfaces with a focus on user experience.', 'UI_UX_Design.jpg', 'Design'),
 (11, 'Advanced Python Programming', 250, 'Dr. Laura Scott', '0000-00-00', '', 'Deep dive into advanced Python features and libraries.', 'Advanced_Python_Programming.jpg', 'Programming'),
 (12, 'Machine Learning', 550, 'Dr. Daniel Martinez', '0000-00-00', '', 'Understand machine learning algorithms and their applications.', 'Machine_Learning.jpg', 'AI'),
-(13, 'Basics of C++', 30, 'Osama Elzero', '2024-09-28', '4 Weeks', 'Learn the basics of C++ programming, including syntax, loops, functions, and object-oriented programming.', 'Basics_of_C++.jpg', 'Programming');
+(13, 'Basics of C++', 30, 'Osama Elzero', '2024-09-28', '4 Weeks', 'Learn the basics of C++ programming, including syntax, loops, functions, and object-oriented programming.', 'Basics_of_C++.jpg', 'Programming'),
+(14, 'Advanced JavaScript', 300, 'Dr. Alice Williams', '0000-00-00', '4 Weeks', 'Deep dive into advanced JavaScript concepts including ES6, asynchronous programming, and more.', 'Advanced_JavaScript.jpg', 'Web Development'),
+(15, 'Responsive Web Design with Bootstrap', 250, 'Sarah Mitchell', '0000-00-00', '3 Weeks', 'Learn to create responsive web designs using Bootstrap framework.', 'Responsive_Web_Design.jpg', 'Web Development'),
+(16, 'Full Stack Web Development', 600, 'Dr. James Turner', '0000-00-00', '12 Weeks', 'Comprehensive course covering both front-end and back-end web development technologies.', 'Full_Stack_Web_Development.jpg', 'Web Development'),
+(17, 'Deep Learning with TensorFlow', 700, 'Dr. Emily Clark', '0000-00-00', '8 Weeks', 'Learn to build and train deep learning models using TensorFlow.', 'Deep_Learning_TensorFlow.jpg', 'AI'),
+(18, 'Natural Language Processing (NLP)', 550, 'Dr. Michael Johnson', '0000-00-00', '6 Weeks', 'Explore techniques and tools for processing and analyzing human language data.', 'NLP.jpg', 'AI'),
+(19, 'AI for Business', 400, 'Dr. Lisa Brown', '0000-00-00', '4 Weeks', 'Understand how to leverage AI technologies to drive business decisions and strategies.', 'AI_for_Business.jpg', 'AI'),
+(20, 'Java Programming for Beginners', 250, 'Dr. Linda White', '0000-00-00', '4 Weeks', 'Introduction to Java programming including basic syntax, control flow, and object-oriented principles.', 'Java_Programming_Beginners.jpg', 'Programming'),
+(21, 'C# and .NET Development', 300, 'Dr. Alex Green', '0000-00-00', '6 Weeks', 'Learn C# programming and .NET framework for building robust applications.', 'CSharp_NET_Development.jpg', 'Programming'),
+(22, 'Introduction to Swift Programming', 280, 'Dr. Karen Smith', '0000-00-00', '5 Weeks', 'Learn Swift programming language for developing iOS applications.', 'Swift_Programming.jpg', 'Programming'),
+(23, 'AI Ethics and Policy', 450, 'Dr. Helen Adams', '0000-00-00', '4 Weeks', 'Understand ethical considerations and policies related to AI.', 'AI_Ethics.jpg', 'AI'),
+(24, 'Robotics and AI', 500, 'Dr. Thomas Harris', '0000-00-00', '6 Weeks', 'Explore the integration of AI in robotics and automation.', 'Robotics_and_AI.jpg', 'AI'),
+(25, 'Introduction to Kotlin', 270, 'Dr. Laura Brown', '0000-00-00', '5 Weeks', 'Learn Kotlin programming language for modern Android development.', 'Kotlin_Introduction.jpg', 'Programming'),
+(26, 'Database Programming with SQL', 320, 'Dr. Brian Smith', '0000-00-00', '6 Weeks', 'Master SQL programming for managing and querying databases.', 'Database_Programming.jpg', 'Programming'),
+(27, 'Building Web Applications with React', 350, 'Dr. Emily Davis', '0000-00-00', '6 Weeks', 'Learn to build dynamic web applications using React.', 'React_Web_Applications.jpg', 'Web Development'),
+(28, 'Introduction to Django', 300, 'Dr. David Clark', '0000-00-00', '5 Weeks', 'Get started with Django for building web applications in Python.', 'Django_Introduction.jpg', 'Web Development'),
+(29, 'Introduction to JavaScript', 300, 'Dr. Robert Black', '0000-00-00', '5 Weeks', 'Learn the basics of JavaScript, including syntax, functions, and more.', 'JavaScript_Basics.jpg', 'Programming'),
+(30, 'Advanced CSS Techniques', 350, 'Sarah Brown', '0000-00-00', '6 Weeks', 'Dive deep into advanced CSS techniques for modern web design.', 'Advanced_CSS.jpg', 'Web Development'),
+(31, 'Responsive Web Design with Flexbox', 275, 'Michael Davis', '0000-00-00', '4 Weeks', 'Learn to create responsive web designs using Flexbox.', 'Flexbox_Design.jpg', 'Web Development'),
+(32, 'Building E-commerce Websites', 400, 'Laura Wilson', '0000-00-00', '8 Weeks', 'Comprehensive course on building fully functional e-commerce websites.', 'ECommerce_Websites.jpg', 'Web Development');
 
 -- --------------------------------------------------------
 
@@ -135,7 +154,7 @@ ALTER TABLE `informations`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `Course_ID` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Course_ID` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `informations`
