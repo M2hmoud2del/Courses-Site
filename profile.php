@@ -75,45 +75,127 @@ include('DBconnection.php'); // Include the database connection file
             </div>
             <div class="infoButtons mt-5">
 <!--Change Information Modal -->
-<div class="modal fade" id="ChangeInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="ChangeInfo" tabindex="-1" role="dialog" aria-labelledby="cInfo_ID" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"> <!-- Added 'modal-lg' for a larger modal -->
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cInfo_ID">Change Information</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header bg-primary text-white"> <!-- Added background color and white text for the header -->
+        <h5 class="modal-title" id="cInfo_ID">Update Personal Information</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form id="changeInfoForm" method="post" action="update_profile.php">
+          <!-- Row for form fields, organized in two columns for better layout -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="userFirstName">First Name</label>
+                <input type="text" class="form-control" id="userFirstName" name="First_Name" value="<?php echo htmlspecialchars($user['First_Name']); ?>" required>
+              </div>
+              <div class="form-group">
+                <label for="userPhone">Phone Number</label>
+                <input type="text" class="form-control" id="userPhone" name="Phone_Number" value="<?php echo htmlspecialchars($user['Phone_Number']); ?>" required>
+              </div>
+              <div class="form-group">
+                <label for="userCountry">Country</label>
+                <input type="text" class="form-control" id="userCountry" name="Country" value="<?php echo htmlspecialchars($user['Country']); ?>" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="userLastName">Last Name</label>
+                <input type="text" class="form-control" id="userLastName" name="Last_Name" value="<?php echo htmlspecialchars($user['Last_Name']); ?>" required>
+              </div>
+              <div class="form-group">
+                <label for="userEmail">Email</label>
+                <input type="email" class="form-control" id="userEmail" name="Email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
+              </div>
+              <div class="form-group">
+                <label for="userUniversity">University</label>
+                <input type="text" class="form-control" id="userUniversity" name="University" value="<?php echo htmlspecialchars($user['University']); ?>" required>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
   </div>
 </div>
+
 <!--Change Password Modal -->
-<div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="cPass_ID" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document"> <!-- Medium-sized modal -->
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-danger text-white"> <!-- Red background for the header -->
         <h5 class="modal-title" id="cPass_ID">Change Password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form id="changePasswordForm" method="post" action="update_password.php">
+          <!-- Current Password Field -->
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="currentPassword" name="current_password" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- New Password Field -->
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="newPassword" name="new_password" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="toggleNewPassword">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm New Password Field -->
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="confirmNewPassword" name="confirm_new_password" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmNewPassword">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password Strength Indicator -->
+          <div class="form-group">
+            <label>Password Strength</label>
+            <div class="progress">
+              <div class="progress-bar" id="passwordStrengthBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <small id="passwordStrengthText" class="form-text text-muted">Enter a strong password.</small>
+          </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-danger">Save Changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
+
             <button type="button" class="btn btn-info bInfo mr-5" data-toggle="modal" data-target="#ChangeInfo">Change Information</button>
             <button type="button" class="btn btn-danger bPassword" data-toggle="modal" data-target="#ChangePass">Change Password</button>
             </div>
