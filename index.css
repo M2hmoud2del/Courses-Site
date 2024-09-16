@@ -86,8 +86,8 @@
             max-width: 800px; /* Max width to limit expansion */
         }
 .para{
+    margin: auto;
     margin-top: 10%;
-
 }
 .box img{
     margin: auto;
@@ -97,7 +97,7 @@
 }
 #contentContainer .card{
     height: 450px;
-    margin: 20px; 
+    margin: 20px;
     width: 370px;
     transition: all .35s ease;
     box-shadow: 5px 5px 10px rgb(55 55 55 / 12%);

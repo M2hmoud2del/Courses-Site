@@ -9,6 +9,7 @@ session_start(); // Start session to access session variables
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/logo.png" type="image/png">
     <title>Sign In / Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-color: rgb(232, 232, 236);">
@@ -36,6 +37,7 @@ session_start(); // Start session to access session variables
                             <div class="form-group">
                                 <label for="login-password">Password</label>
                                 <input type="password" class="form-control" name="password" id="login-password" placeholder="Password" required>
+
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -82,6 +84,9 @@ session_start(); // Start session to access session variables
                             <div class="form-group">
                                 <label for="register-password">Password</label>
                                 <input type="password" class="form-control" name="password" id="register-password" placeholder="Password" required>
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i><i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i><label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Capital letter</label> <br>
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i><i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i><label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">8 digits or more</label>
+
                             </div>
                             <div class="form-group">
                                 <label for="register-confirm-password">Confirm Password</label>
