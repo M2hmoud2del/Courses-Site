@@ -100,11 +100,11 @@
     /* margin: 20px; */
     width: 370px;
     transition: all .35s ease;
-    box-shadow: 5px 30px 56px rgb(55 55 55 / 12%);
+    box-shadow: 5px 5px 10px rgb(55 55 55 / 12%);
 }
 
 #contentContainer .card:hover{
-    translate: 0 -5px;
+    transform: scale(1.05);
 }
 
 #contentContainer{
