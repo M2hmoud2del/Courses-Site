@@ -45,8 +45,13 @@ if (isset($_SESSION['user'])) {
 
 echo '<div class="container-fluid mt-5" id="contentContainer">
         <div class="row" id="contentRow">';
+        $count =0;
 while ($course = mysqli_fetch_assoc($result)) {
     // Check if the user is not enrolled in this course
+    if($course['Category'] === "Programming" && $count==0){echo "<h1>Programming</h1>";$count++;}
+    else if($course['Category'] === "Web Development" && $count==1){echo "<h1>Web Development</h1>";$count++;}
+    else if($course['Category'] === "AI" && $count==2){echo "<h1>AI</h1>";$count++;}
+    else if($course['Category'] !== "AI" &&$count==3){echo "<h1>Other Courses</h1>";$count++;}
     if (!in_array($course['Course_ID'], $enrolledCourses)) {
         echo '
         <div class="col-sm-6 col-md-4 mb-4 " id="column">
