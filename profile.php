@@ -60,7 +60,7 @@ include('DBconnection.php'); // Include the database connection file
 <body style="background-color: rgb(232, 232, 236);">
     <!-- Navbar -->
      <?php include("navbar.php"); ?>
-    <div class="outerbox">
+    <div class="outerbox mt-5 ">
         <div class="box">
             <img src="img/profile.png" alt="Profile Picture">
             <p id="username"><?php echo htmlspecialchars($user['Username']); ?></p>
@@ -71,6 +71,10 @@ include('DBconnection.php'); // Include the database connection file
                 <p>Email: <span><?php echo htmlspecialchars($user['Email']); ?></span></p>
                 <p>Country: <span><?php echo htmlspecialchars($user['Country']); ?></span></p>
                 <p>University: <span><?php echo htmlspecialchars($user['University']); ?></span></p>
+            </div>
+            <div class="infoButtons mt-5">
+            <button type="button" class="btn btn-info bInfo mr-5">Change Information</button>
+            <button type="button" class="btn btn-danger bPassword">Change Password</button>
             </div>
         </div>
     </div>

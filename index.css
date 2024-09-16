@@ -99,3 +99,9 @@
 #contentContainer{
     width: 85%;
 } 
+.infoButtons {
+    display: flex;
+    justify-content: space-between; /* Place buttons at the ends */
+    align-items: center; /* Vertically center items */
+    width: 100%; /* Ensure the container takes up full width of its parent */
+}
