@@ -3,7 +3,7 @@
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="index.php">Coursaty |</a>
           <a class="navbar-brand fw-bold" href="index.php">Home</a>
-          <a class="navbar-brand fw-bold" href="#foot" style="transition: color 0.3s ease, transform 0.3s ease;">About</a>
+          <a class="navbar-brand fw-bold" href="#foot" >About</a>
           <li class="navbar-brand dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Courses
