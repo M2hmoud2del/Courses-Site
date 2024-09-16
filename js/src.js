@@ -5,7 +5,6 @@ menu.onclick = function() {
     if(turn){cont.style.display="inline";turn=!turn;}
     else {cont.style.display="none";turn=!turn;}
 };
-console.log("JS file is loaded correctly!");
 
 
 document.getElementById('toggleCurrentPassword').addEventListener('click', function() {
