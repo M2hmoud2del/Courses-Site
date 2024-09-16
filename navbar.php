@@ -1,7 +1,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-danger bg-light" style="position: fixed;z-index: 1000;width: 100%;top: 0px;">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="index.php">Coursaty |</a>
+          <a class="navbar-brand fw-bold" href="index.php"><img src="img\logo.png" style="width:60px; ">Coursaty </a>
           <a class="navbar-brand fw-bold" href="index.php">Home</a>
           <a class="navbar-brand fw-bold" href="#foot" >About</a>
           <li class="navbar-brand dropdown">
