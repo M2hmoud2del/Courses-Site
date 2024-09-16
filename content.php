@@ -48,15 +48,15 @@ echo '<div class="container-fluid mt-5" id="contentContainer">
         $count =0;
 while ($course = mysqli_fetch_assoc($result)) {
     // Check if the user is not enrolled in this course
-    if($course['Category'] === "Programming" && $count==0){echo "<div class='courseType'><h1>Programming</h1></div>";$count++;}
-    else if($course['Category'] === "Web Development" && $count==1){echo "<div class='courseType'><h1>Web Development</h1></div>";$count++;}
-    else if($course['Category'] === "AI" && $count==2){echo "<div class='courseType'><h1>AI</h1></div>";$count++;}
-    else if($course['Category'] !== "AI" &&$count==3){echo "<div class='courseType'><h1>Other Courses</h1></div>";$count++;}
+    if($course['Category'] === "Programming" && $count==0){echo "<div class='courseType' ><h1 id='programming'>Programming</h1></div>";$count++;}
+    else if($course['Category'] === "Web Development" && $count==1){echo "<div class='courseType'><h1 id='Web Development'>Web Development</h1></div>";$count++;}
+    else if($course['Category'] === "AI" && $count==2){echo "<div class='courseType'><h1 id='AI'>AI</h1></div>";$count++;}
+    else if($course['Category'] !== "AI" &&$count==3){echo "<div class='courseType'><h1 id='Other Courses'>Other Courses</h1></div>";$count++;}
     if (!in_array($course['Course_ID'], $enrolledCourses)) {
         echo '
         <div class="col-sm-6 col-md-4 mb-4 " id="column">
             <form action="enroll.php" method="post">
-                <div class="card " style="width: 450px; height: 450px;">
+                <div class="card " style="width: 400px; height: 450px;">
                     <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image" style="height: 150px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <div>

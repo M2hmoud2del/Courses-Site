@@ -9,9 +9,9 @@
               Courses
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Programming</a>
-              <a class="dropdown-item" href="#">AI</a>
-              <a class="dropdown-item" href="#">Web Devlovment</a>
+              <a class="dropdown-item" href="#programming">Programming</a>
+              <a class="dropdown-item" href="#AI">AI</a>
+              <a class="dropdown-item" href="#Web Development">Web Devlovment</a>
             </div>
           </li>
           <a class="navbar-brand fw-bold" id="acc" href="#"><i class="fa-solid fa-user "></i></a>
