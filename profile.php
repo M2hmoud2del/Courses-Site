@@ -86,7 +86,6 @@ include('DBconnection.php'); // Include the database connection file
       </div>
       <div class="modal-body">
         <form id="changeInfoForm" method="post" action="update_profile.php">
-          <!-- Row for form fields, organized in two columns for better layout -->
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -185,12 +184,23 @@ include('DBconnection.php'); // Include the database connection file
               <div class="progress-bar" id="passwordStrengthBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <small id="passwordStrengthText" class="form-text text-muted">Enter a strong password.</small>
+            
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-danger">Save Changes</button>
+
       </div>
+      <?php if(isset($_SESSION['password_updated']) && !empty($_SESSION['password_updated']) && $_SESSION['password_updated']):?>
+      <div class="alert alert-success mt-2">
+      Password updated successfully.
+      </div>
+      <?php elseif(isset($_SESSION['password_updated']) && !empty($_SESSION['password_updated']) && !$_SESSION['password_updated']):?>
+        <div class="alert alert-success mt-2">
+        Error updating password.
+            </div>
+      <?php endif;?>
       </form>
     </div>
   </div>

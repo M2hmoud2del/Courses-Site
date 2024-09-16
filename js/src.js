@@ -50,3 +50,19 @@ document.getElementById('toggleCurrentPassword').addEventListener('click', funct
       strengthBar.classList.add('bg-success');
     }
   });
+
+
+
+  $('#changePasswordForm').submit(function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    $.ajax({
+      url: 'update_password.php', // PHP file to handle the request
+      type: 'POST',
+      data: $(this).serialize(), // Send form data
+      success: function(response) {
+        // If successful, alert the user and reset the form
+        $('#changePasswordForm')[0].reset(); // Clear the form fields
+      },
+    });
+  });
