@@ -14,7 +14,7 @@ session_start(); // Start session to access session variables
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?= include("navbar.php");?>
-    <div class="container mt-5" style="width: 80%;padding: 20px;">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <h2 class="text-center">Sign In / Register</h2>
@@ -37,7 +37,6 @@ session_start(); // Start session to access session variables
                             <div class="form-group">
                                 <label for="login-password">Password</label>
                                 <input type="password" class="form-control" name="password" id="login-password" placeholder="Password" required>
-
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -45,18 +44,18 @@ session_start(); // Start session to access session variables
                             </div>
                             <button type="submit" class="btn btn-primary btn-block mt-3" name="login">Sign In</button>
                         </form>
-                                <!-- Display message if available -->
+                        <!-- Display message if available -->
                         <?php if (isset($_SESSION['message']) && !empty($_SESSION['message']) && $_SESSION['message'] !== "Registration successful!"): ?>
                             <div class="alert alert-danger mt-2">
                                 <?= $_SESSION['message']; ?>
                                 <?php unset($_SESSION['message']); // Clear the message after displaying ?>
-                        </div>
-                        <?php elseif(isset($_SESSION['message']) && !empty($_SESSION['message'])):?>
-                                <div class="alert alert-success mt-2">
+                            </div>
+                        <?php elseif(isset($_SESSION['message']) && !empty($_SESSION['message'])): ?>
+                            <div class="alert alert-success mt-2">
                                 <?= $_SESSION['message']; ?>
                                 <?php unset($_SESSION['message']); // Clear the message after displaying ?>
-                        </div>
-                    <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                         <p class="text-center mt-3"><a href="#">Forgot your password?</a></p>
                     </div>
                     
@@ -84,9 +83,12 @@ session_start(); // Start session to access session variables
                             <div class="form-group">
                                 <label for="register-password">Password</label>
                                 <input type="password" class="form-control" name="password" id="register-password" placeholder="Password" required>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i><i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i><label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Capital letter</label> <br>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i><i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i><label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">8 digits or more</label>
-
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
+                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
+                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Capital letter</label><br>
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
+                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
+                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">8 digits or more</label>
                             </div>
                             <div class="form-group">
                                 <label for="register-confirm-password">Confirm Password</label>
@@ -94,7 +96,8 @@ session_start(); // Start session to access session variables
                             </div>
                             <div class="form-group">
                                 <label for="register-phone">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required>
+                                <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required oninput="validatePhoneNumber()">
+                                <small id="phone-validation-message" class="form-text text-danger"></small>
                             </div>
                             <div class="form-group">
                                 <label for="register-country">Country</label>
@@ -115,5 +118,22 @@ session_start(); // Start session to access session variables
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    function validatePhoneNumber() {
+        const phoneInput = document.getElementById('register-phone');
+        const validationMessage = document.getElementById('phone-validation-message');
+        const phoneValue = phoneInput.value;
+
+  
+        const phoneRegex = /^\d{11}$/;
+
+        if (!phoneRegex.test(phoneValue)) {
+            validationMessage.textContent = 'Phone number must be exactly 14 digits and contain no letters.'; return false;
+        } else {
+            validationMessage.textContent = ''; return true;
+        }
+    }
+    </script>
 </body>
 </html>
