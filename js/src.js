@@ -118,3 +118,19 @@ function preventInfoSubmit(event) {
     }
 }
 informationForm.addEventListener('submit', preventInfoSubmit);
+
+// JavaScript for Registration
+function validatePhoneNumber() {
+  const phoneInput = document.getElementById('register-phone');
+  const validationMessage = document.getElementById('phone-validation-message');
+  const phoneValue = phoneInput.value;
+
+
+  const phoneRegex = /^\d{11}$/;
+
+  if (!phoneRegex.test(phoneValue)) {
+      validationMessage.textContent = 'Phone number must be exactly 14 digits and contain no letters.'; return false;
+  } else {
+      validationMessage.textContent = ''; return true;
+  }
+}

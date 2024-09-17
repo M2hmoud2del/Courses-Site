@@ -59,87 +59,186 @@ session_start(); // Start session to access session variables
                         <p class="text-center mt-3"><a href="#">Forgot your password?</a></p>
                     </div>
                     
-                    <!-- Register Tab -->
-                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                        <form method="post" action="login.php"> <!-- Ensure form action points to the correct PHP file -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="register-first-name">First Name</label>
-                                    <input type="text" class="form-control" name="first_name" id="register-first-name" placeholder="First Name" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="register-last-name">Last Name</label>
-                                    <input type="text" class="form-control" name="last_name" id="register-last-name" placeholder="Last Name" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-email">Email address</label>
-                                <input type="email" class="form-control" name="email" id="register-email" placeholder="Enter email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-username">Username</label>
-                                <input type="text" class="form-control" name="username" id="register-username" placeholder="Username" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-password">Password</label>
-                                <input type="password" class="form-control" name="password" id="register-password" placeholder="Password" required>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
-                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
-                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Capital letter</label><br>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
-                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
-                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">At least 1 digit</label><br>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
-                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
-                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">contain 1 of these characcters [@$!%*?&]</label><br>
-                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
-                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
-                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">password length more that 8 characters</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-confirm-password">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="register-confirm-password" placeholder="Confirm Password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-phone">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required oninput="validatePhoneNumber()">
-                                <small id="phone-validation-message" class="form-text text-danger"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-country">Country</label>
-                                <input type="text" class="form-control" name="country" id="register-country" placeholder="Country" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-university">University</label>
-                                <input type="text" class="form-control" name="university" id="register-university" placeholder="University" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block mt-4" name="register">Register</button>
-                        </form>
-                    </div>
+    <!-- Register Tab -->
+    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+        <form method="post" id="changeInfoForm" action="login.php">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="register-first-name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="register-first-name" placeholder="First Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="register-last-name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="register-last-name" placeholder="Last Name" required>
                 </div>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="register-email">Email address</label>
+                <input type="email" class="form-control" name="email" id="register-email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="register-username">Username</label>
+                <input type="text" class="form-control" name="username" id="register-username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="register_password">Password</label>
+                <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
+                <div id="CheckCapital" >
+                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                <label style="margin:10px; margin-bottom: 0px; color:red;">Capital letter</label></div>
+                <div id="CheckSmall">
+                <i class="fa-solid fa-circle-xmark icons"  style="color:red; margin-left:20px; font-size:small;"></i>
+                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">At least 1 digit</label></div>
+                <div id="CheckComplex">
+                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Contain 1 of these characters [@$!%*?&]</label></div>
+                <div id="CheckLength">
+                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Password length more than 8 characters</label></div>
+            </div>
+            <div class="form-group">
+                <label for="register_confirm_password">Confirm Password</label>
+                <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
+                <small id="CheckMatching" style="display:none; margin:10px; margin-bottom: 0px; color:red;">
+                    <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:10px; margin-right: 10px; font-size:small;"></i>Passwords Not Matching
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="register-phone">Phone Number</label>
+                <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required oninput="validatePhoneNumber()">
+                <small id="phone-validation-message" class="form-text text-danger"></small>
+            </div>
+            <div class="form-group">
+                <label for="register-country">Country</label>
+                <input type="text" class="form-control" name="country" id="register-country" placeholder="Country" required>
+            </div>
+            <div class="form-group">
+                <label for="register-university">University</label>
+                <input type="text" class="form-control" name="university" id="register-university" placeholder="University" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-4" name="register">Register</button>
+        </form>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="js/src.js"></script>
     <script>
-    function validatePhoneNumber() {
-        const phoneInput = document.getElementById('register-phone');
-        const validationMessage = document.getElementById('phone-validation-message');
-        const phoneValue = phoneInput.value;
+document.addEventListener('DOMContentLoaded', () => {
+    const RegistrationForm = document.getElementById('changeInfoForm');
+    const Password = RegistrationForm.querySelector('#register_password');
+    const confirmPassword = RegistrationForm.querySelector('#register_confirm_password');
+    const CheckMatching = RegistrationForm.querySelector('#CheckMatching');
+    const CheckCapital = RegistrationForm.querySelector('#CheckCapital');
+    const CheckSmall = RegistrationForm.querySelector('#CheckSmall');
+    const CheckComplex = RegistrationForm.querySelector('#CheckComplex');
+    const CheckLength = RegistrationForm.querySelector('#CheckLength');
 
-  
-        const phoneRegex = /^\d{11}$/;
-
-        if (!phoneRegex.test(phoneValue)) {
-            validationMessage.textContent = 'Phone number must be exactly 14 digits and contain no letters.'; return false;
+    function validateMatching() {
+        if (Password.value !== confirmPassword.value) {
+            CheckMatching.style.display = 'block';
+            return false; // Indicate mismatch
         } else {
-            validationMessage.textContent = ''; return true;
+            CheckMatching.style.display = 'none';
+            return true; // Indicate match
         }
     }
+
+    function validatePassword() {
+        const password = Password.value;
+        const hasCapital = /[A-Z]/.test(password);
+        const hasSmall = /[a-z]/.test(password);
+        const hasDigit = /\d/.test(password);
+        const hasSpecial = /[@$!%*?&]/.test(password);
+        const isLongEnough = password.length > 8;
+
+        // Capital Letter
+        const capitalIcon = CheckCapital.querySelector('.icons');
+        const capitalText = CheckCapital.querySelector('label');
+        if (hasCapital) {
+            capitalIcon.classList.remove('fa-circle-xmark');
+            capitalIcon.classList.add('fa-check');
+            capitalIcon.style.color = 'green';
+            capitalText.textContent = 'Capital letter present';
+            capitalText.style.color = 'green';
+        } else {
+            capitalIcon.classList.remove('fa-check');
+            capitalIcon.classList.add('fa-circle-xmark');
+            capitalIcon.style.color = 'red';
+            capitalText.textContent = 'Capital letter required';
+            capitalText.style.color = 'red';
+        }
+
+        // Digit
+        const digitIcon = CheckSmall.querySelector('.icons');
+        const digitText = CheckSmall.querySelector('label');
+        if (hasDigit) {
+            digitIcon.classList.remove('fa-circle-xmark');
+            digitIcon.classList.add('fa-check');
+            digitIcon.style.color = 'green';
+            digitText.textContent = 'At least 1 digit present';
+            digitText.style.color = 'green';
+        } else {
+            digitIcon.classList.remove('fa-check');
+            digitIcon.classList.add('fa-circle-xmark');
+            digitIcon.style.color = 'red';
+            digitText.textContent = 'At least 1 digit required';
+            digitText.style.color = 'red';
+        }
+
+        // Special Character
+        const specialIcon = CheckComplex.querySelector('.icons');
+        const specialText = CheckComplex.querySelector('label');
+        if (hasSpecial) {
+            specialIcon.classList.remove('fa-circle-xmark');
+            specialIcon.classList.add('fa-check');
+            specialIcon.style.color = 'green';
+            specialText.textContent = 'Special character present';
+            specialText.style.color = 'green';
+        } else {
+            specialIcon.classList.remove('fa-check');
+            specialIcon.classList.add('fa-circle-xmark');
+            specialIcon.style.color = 'red';
+            specialText.textContent = 'Special character required';
+            specialText.style.color = 'red';
+        }
+
+        // Length
+        const lengthIcon = CheckLength.querySelector('.icons');
+        const lengthText = CheckLength.querySelector('label');
+        if (isLongEnough) {
+            lengthIcon.classList.remove('fa-circle-xmark');
+            lengthIcon.classList.add('fa-check');
+            lengthIcon.style.color = 'green';
+            lengthText.textContent = 'Password length is sufficient';
+            lengthText.style.color = 'green';
+        } else {
+            lengthIcon.classList.remove('fa-check');
+            lengthIcon.classList.add('fa-circle-xmark');
+            lengthIcon.style.color = 'red';
+            lengthText.textContent = 'Password length must be more than 8 characters';
+            lengthText.style.color = 'red';
+        }
+        
+        return hasCapital && hasDigit && hasSpecial && isLongEnough; // Return overall validation status
+    }
+
+    RegistrationForm.addEventListener('submit', (event) => {
+        const passwordsMatch = validateMatching();
+        const passwordIsValid = validatePassword();
+        if (!passwordsMatch || !passwordIsValid) {
+            event.preventDefault(); // Prevent form submission
+            alert('Please correct the errors before submitting.');
+        }
+    });
+
+    Password.addEventListener('input', () => {
+        validatePassword();
+        validateMatching();
+    });
+
+    confirmPassword.addEventListener('input', validateMatching);
+});
     </script>
 </body>
 </html>
