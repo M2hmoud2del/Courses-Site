@@ -134,3 +134,6 @@ function validatePhoneNumber() {
       validationMessage.textContent = ''; return true;
   }
 }
+document.querySelector('#checks').addEventListener('onfoucs',function(){
+  document.querySelector('#checks').style.display = 'block';
+});

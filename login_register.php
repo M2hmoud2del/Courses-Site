@@ -83,7 +83,7 @@ session_start(); // Start session to access session variables
             <div class="form-group">
                 <label for="register_password">Password</label>
                 <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
-                <div id="checks" style="display:none;"></div>
+                <div id="checks" style="display:none;">
                 <div id="CheckCapital" >
                 <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
                 <label style="margin:10px; margin-bottom: 0px; color:red;">Capital letter</label></div>
@@ -96,6 +96,7 @@ session_start(); // Start session to access session variables
                 <div id="CheckLength">
                 <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
                 <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Password length more than 8 characters</label></div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="register_confirm_password">Confirm Password</label>
@@ -125,6 +126,7 @@ session_start(); // Start session to access session variables
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/src.js"></script>
     <script>
+
 document.addEventListener('DOMContentLoaded', () => {
     const RegistrationForm = document.getElementById('changeInfoForm');
     const Password = RegistrationForm.querySelector('#register_password');
@@ -144,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return true; // Indicate match
         }
     }
-
+    
     function validatePassword() {
         const password = Password.value;
         const hasCapital = /[A-Z]/.test(password);
@@ -223,7 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         return hasCapital && hasDigit && hasSpecial && isLongEnough; // Return overall validation status
     }
-
+    Password.addEventListener('focus',function(){
+  document.querySelector('#checks').style.display = 'block';
+});
+Password.addEventListener('blur',function(){
+  if(validatePassword())document.querySelector('#checks').style.display = 'none';
+});
     RegistrationForm.addEventListener('submit', (event) => {
         const passwordsMatch = validateMatching();
         const passwordIsValid = validatePassword();
