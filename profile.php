@@ -39,6 +39,7 @@ include('DBconnection.php'); // Include the database connection file
           font-weight: 700;
         }
         .box {
+          margin-top:500px;
             background-color: white;
             padding: 20px;
             border-radius: 10px;
