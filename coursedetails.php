@@ -116,7 +116,7 @@ body {
 <body style="background-color: rgb(232, 232, 236);">
     <br>
     <br>
-    
+    <?php
     <div class="carddetails">
     <h1>C# and .NET Development</h1>
 
@@ -147,6 +147,7 @@ body {
             own projects. This course is ideal for beginners and those looking to advance their skills in software development.
         </p>
     </div>
+
         <div class="course-video">
         <h2>Watch the Course Overview Video</h2>
         <p>This video explains the entire course structure and what you can expect to learn:</p>
