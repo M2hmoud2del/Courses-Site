@@ -10,6 +10,9 @@ if (!isset($_SESSION['user'])) {
 // Ensure $user is set and not null
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
+$passwordUpdated = isset($_SESSION['password_updated']) ? $_SESSION['password_updated'] : null;
+unset($_SESSION['password_updated']);
+
 include('DBconnection.php'); // Include the database connection file
 ?>
 <!DOCTYPE html>
@@ -115,7 +118,9 @@ include('DBconnection.php'); // Include the database connection file
                 <input type="text" class="form-control" id="userUniversity" name="University" value="<?php echo htmlspecialchars($user['University']); ?>" required>
               </div>
             </div>
+
           </div>
+          <small id="changesMessage" class="form-text text-info" style="display: none;">You have unsaved changes!</small>
         </form>
       </div>
       <div class="modal-footer">
@@ -127,6 +132,7 @@ include('DBconnection.php'); // Include the database connection file
 </div>
 
 <!--Change Password Modal -->
+<input type="hidden" id="submissionStatus" value="<?php echo isset($_SESSION['password_updated']) ? htmlspecialchars($_SESSION['password_updated']) : htmlspecialchars(''); ?>">
 <div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="cPass_ID" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document"> <!-- Medium-sized modal -->
     <div class="modal-content">
@@ -166,15 +172,16 @@ include('DBconnection.php'); // Include the database connection file
 
           <!-- Confirm New Password Field -->
           <div class="form-group">
-            <label for="confirmNewPassword">Confirm New Password</label>
-            <div class="input-group">
-              <input type="password" class="form-control" id="confirmNewPassword" name="confirm_new_password" required>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmNewPassword">
-                  <i class="fa fa-eye"></i>
-                </button>
+              <label for="confirmNewPassword">Confirm New Password</label>
+              <div class="input-group">
+                  <input type="password" class="form-control" id="confirmNewPassword" name="confirm_new_password" required>
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="toggleConfirmNewPassword">
+                          <i class="fa fa-eye"></i>
+                      </button>
+                  </div>
               </div>
-            </div>
+              <small id="passwordMatchError" class="form-text text-danger" style="display: none;"><i class="fa fa-times-circle"></i>Passwords do not match!</small>
           </div>
 
           <!-- Password Strength Indicator -->
@@ -192,15 +199,17 @@ include('DBconnection.php'); // Include the database connection file
         <button type="submit" class="btn btn-danger">Save Changes</button>
 
       </div>
-      <?php if(isset($_SESSION['password_updated']) && !empty($_SESSION['password_updated']) && $_SESSION['password_updated']):?>
-      <div class="alert alert-success mt-2">
-      Password updated successfully.
-      </div>
-      <?php elseif(isset($_SESSION['password_updated']) && !empty($_SESSION['password_updated']) && !$_SESSION['password_updated']):?>
-        <div class="alert alert-success mt-2">
-        Error updating password.
-            </div>
-      <?php endif;?>
+      <?php if ($passwordUpdated == 'success'): ?>
+        <!-- Success message -->
+        <div class="alert alert-success mt-2" id="valid">
+            Password updated successfully.
+        </div>
+    <?php elseif ($passwordUpdated == 'fail'): ?>
+        <!-- Error message -->
+        <div class="alert alert-danger mt-2" id="invalid">
+            Wrong Current Password !
+        </div>
+    <?php endif; ?>
       </form>
     </div>
   </div>
@@ -212,9 +221,9 @@ include('DBconnection.php'); // Include the database connection file
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="js/src.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
       <script src="js/bootstrap.js"></script>
+      <script src="js/src.js"></script>
 </body>
 </html>

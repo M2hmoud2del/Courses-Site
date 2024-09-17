@@ -14,7 +14,7 @@ session_start(); // Start session to access session variables
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?= include("navbar.php");?>
-    <div class="container mt-5">
+    <div class="container mt-5" style="width: 80%;padding: 20px;">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <h2 class="text-center">Sign In / Register</h2>
