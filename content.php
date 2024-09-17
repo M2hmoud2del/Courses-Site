@@ -4,8 +4,8 @@ include('DBconnection.php');
 ?>
 <!--Background Photo-->
 <div class="cont" style="margin-top: 120px;">
-    <div class="tex" style="margin: 50px; margin-top:100px;">
-        <h1 style="margin-bottom:25px;">Welcome to Coursaty Website</h1>
+    <div class="tex" style="margin: 50px; margin-top:110px;">
+        <h1 style="margin-bottom:50px;">Welcome to Coursaty Website</h1>
         <p>Your destination for learning new skills and advancing your career.</p>
         <p>Explore our courses on web development, AI, data science, and much more!</p>
         <p>Our instructors provide hands-on learning to ensure you master the skills you need.</p>
