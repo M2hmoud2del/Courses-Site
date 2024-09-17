@@ -88,7 +88,13 @@ session_start(); // Start session to access session variables
                                 <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Capital letter</label><br>
                                 <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
                                 <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
-                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">8 digits or more</label>
+                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">At least 1 digit</label><br>
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
+                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
+                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">contain 1 of these characcters [@$!%*?&]</label><br>
+                                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:20px; font-size:small;"></i>
+                                <i class="fa-solid fa-check" style="color:green; margin-left:20px; font-size:small;"></i>
+                                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">password length more that 8 characters</label>
                             </div>
                             <div class="form-group">
                                 <label for="register-confirm-password">Confirm Password</label>
