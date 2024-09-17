@@ -83,29 +83,38 @@ togglePasswordVisibility('confirmNewPassword', 'toggleConfirmNewPassword');
       document.querySelector('.bPassword').click();
     }
   }
-  //JS For Change Information
-  const Informationform = document.getElementById('changeInfoForm');
-  const Infoinputs = Informationform.querySelectorAll('input');
-  const changesMessage = document.getElementById('changesMessage');
-  const initialValues = {};
-  Infoinputs.forEach(input => {
+// JavaScript for Change Information
+const informationForm = document.getElementById('changeInfoForm');
+const infoInputs = informationForm.querySelectorAll('input');
+const changesMessage = document.getElementById('changesMessage');
+const initialValues = {};
+infoInputs.forEach(input => {
     initialValues[input.id] = input.value;
-  });
-  function checkChanges(){
-    Infoinputs.forEach(input =>{
-      if(input.value !== Infoinputs[input.id])return true;
+});
+function checkChanges() {
+    let hasChanges = false;
+    infoInputs.forEach(input => {
+        if (input.value !== initialValues[input.id]) {
+            hasChanges = true;
+        }
     });
-    return false;
-  }
-  Infoinputs.forEach(input =>{
-    Infoinputs.addEventListener('input',function(){
-      if(checkChanges()){
+    return hasChanges;
+}
+infoInputs.forEach(input => {
+    input.addEventListener('input', function () {
+        if (checkChanges()) {
+          changesMessage.innerText = 'You have unsaved changes!';
+            changesMessage.style.display = 'block';
+        } else {
+            changesMessage.style.display = 'none';
+        }
+    });
+});
+function preventInfoSubmit(event) {
+    if (!checkChanges()) {
+        event.preventDefault();
         changesMessage.style.display = 'block';
-      }else {changesMessage.style.display = 'none';}
-    });
-  });
-  // function preventInfoSubmit(event){
-  //   if(!checkChanges()){
-  //     event.preventDefault();
-  //   }
-  // }
+        changesMessage.innerText = 'No changes detected. Please make some changes before submitting.';
+    }
+}
+informationForm.addEventListener('submit', preventInfoSubmit);

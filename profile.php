@@ -118,14 +118,13 @@ include('DBconnection.php'); // Include the database connection file
                 <input type="text" class="form-control" id="userUniversity" name="University" value="<?php echo htmlspecialchars($user['University']); ?>" required>
               </div>
             </div>
-
           </div>
           <small id="changesMessage" class="form-text text-info" style="display: none;">You have unsaved changes!</small>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="submit" class="btn btn-primary" form="changeInfoForm">Save Changes</button>
       </div>
     </div>
   </div>
