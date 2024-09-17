@@ -27,39 +27,104 @@ include('DBconnection.php'); // Include the database connection file
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Coursaty Website</title>
     <style>
-        .outerbox {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: rgb(232, 232, 236);
-        }
-        #username{
-          font-size:xx-large;
-          font-weight: 700;
-        }
-        .box {
-          margin-top:500px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .box img {
-            width: 300px;
-            border-radius: 50%;
-            margin-bottom: 0px;
-            margin-top:100px;
-        }
-        .para p {
-            font-size: xx-large;
-            font-weight: 350;
-            margin: 10px 0;
-        }
-        .para span {
-            font-weight: 100;
-        }
+        /* Profile Container */
+        
+.outerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f1f3f5 10%, #e9ecef 100%);
+}
+
+.box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    transition: all 0.3s ease;
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* Profile Image */
+.box img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+/* Username */
+#username {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Profile Information */
+.para {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    color: #444;
+}
+
+.para p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.para span {
+    font-weight: 400;
+    color: #777;
+}
+
+/* Info Buttons */
+.infoButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    width: 100%;
+    justify-items: stretch;
+    
+}
+
+.infoButtons .btn {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.infoButtons .btn-info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    border: none;
+    color: white;
+    
+}
+
+.infoButtons .btn-info:hover {
+    background: linear-gradient(135deg, #138496, #106876);
+    
+}
+
+.infoButtons .btn-danger {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+    border: none;
+    color: white;
+}
+
+.infoButtons .btn-danger:hover {
+    background: linear-gradient(135deg, #bd2130, #a71d2a);
+}
+
+
+
     </style>
 </head>
 <body style="background-color: rgb(232, 232, 236);">
@@ -67,7 +132,7 @@ include('DBconnection.php'); // Include the database connection file
      <?php include("navbar.php"); ?>
     <div class="outerbox mt-5 ">
         <div class="box">
-            <img src="img/profile.png" alt="Profile Picture">
+            <img src="img/prof.webp" >
             <p id="username"><?php echo htmlspecialchars($user['Username']); ?></p>
             <div class="para">
                 <p>First Name: <span><?php echo htmlspecialchars($user['First_Name']); ?></span></p>
