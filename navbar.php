@@ -16,8 +16,8 @@
           </li>
           <a class="navbar-brand fw-bold" id="acc" href="#"><i class="fa-solid fa-user "></i></a>
         </div>
-        <div class="menu" style="display: none; position: absolute; margin-top: 250px;padding-right: 50px; ;right:5px;border-radius: 10px;border: 1px solid rgb(97, 97, 99) ;background-color: #d4e8eb;">
-          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="profile.php">Profile</a><br>
+        <div class="menu" style="display: none;height: 170px; position: absolute; margin-top: 250px;padding-right: 50px; ;right:5px;border-radius: 10px;border: 1px solid rgb(97, 97, 99) ;background-color: #d4e8eb;">
+          <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;margin-top:8px;" href="profile.php">Profile</a><br>
           <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;" href="mycourses.php">My Courses</a><br>
           <hr>
           <?php if (isset($_SESSION['user'])): ?>
