@@ -142,8 +142,7 @@ document.querySelectorAll(".card").forEach(function(card) {
   card.addEventListener("click", function() {
     let courseid = card.querySelector(".idcard").value;
     document.querySelector(".key").value = courseid;
-    
-    // Optionally, you can console log to ensure it's working
+    alert(courseid);
     console.log("Card clicked, Course ID: " + courseid);
   });
 });

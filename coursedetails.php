@@ -1,7 +1,24 @@
 <?php
 session_start();
 include('DBconnection.php'); // Include the database connection file
+
+$course_id = "";
+
+if (isset($_POST['course_id'])) {
+    $course_id = $_POST['course_id'];
+    $query = "SELECT * FROM courses WHERE Course_ID = ?";
+    if ($stmt = mysqli_prepare($conn, $query)) {
+        mysqli_stmt_bind_param($stmt, "i", $course_id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $data = mysqli_fetch_assoc($result);
+    } else {
+        echo "Failed to prepare the SQL statement.";
+    }
+}
+mysqli_close($conn);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,9 +137,11 @@ body {
 
     echo '
     <div class="carddetails">
-    <h1>C# and .NET Development</h1>
+    <div class="container mb-5" ><img src="img/' . $data['Image'] .'" id="back" alt="" style="width:100%;height:300px;"></div>
+    <div>
+    <h1>' . $data['CourseTitle'] . '</h1></div>
 
-    <div class="instructor">
+    <div class="instructor" >
         <strong>Instructor:</strong> Dr. Alex Green
     </div>
 
@@ -138,14 +157,14 @@ body {
         <h2>Course Content Overview</h2>
         <p>
             This course covers everything from the fundamentals of C# programming to more advanced topics in the .NET framework.
-            You'll learn C# syntax, object-oriented programming, and how to build scalable applications using ASP.NET Core.
+            You\'ll learn C# syntax, object-oriented programming, and how to build scalable applications using ASP.NET Core.
         </p>
         <p>
             The course is structured into modules that start from basic concepts and gradually move into complex topics like
             database integration with Entity Framework and building web applications.
         </p>
         <p>
-            By the end of the course, you'll have hands-on experience with building applications, debugging code, and deploying your
+            By the end of the course, you\'ll have hands-on experience with building applications, debugging code, and deploying your
             own projects. This course is ideal for beginners and those looking to advance their skills in software development.
         </p>
     </div>
@@ -161,7 +180,7 @@ body {
 </div>'
 ?>
     <?php
-    include('dbConnection.php');include("navbar.php");
+    include('dbConnection.php');
     ?>
       <input class="key" type="hidden" name="course_id" value="">
  
