@@ -8,15 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     }else{
         $user = $_SESSION['user'] ;
         $courseID = $_POST['course_id'];
-        $sql = "INSERT INTO `coursesmembership` (`client`, `course`) VALUES (?, ?)";
+        $sql = "INSERT INTO coursesmembership (client, course) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         if($stmt){
             $stmt->bind_param("ss", $user['Client_ID'],$courseID);
             $stmt->execute();
             $stmt->close();
         }
-        header('Location: index.php');
+        header('Location: coursedetails.php');
         exit();
-    }
+    }
 }
 ?>

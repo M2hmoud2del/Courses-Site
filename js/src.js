@@ -129,7 +129,7 @@ function validatePhoneNumber() {
   const phoneRegex = /^\d{11}$/;
 
   if (!phoneRegex.test(phoneValue)) {
-      validationMessage.textContent = 'Phone number must be exactly 14 digits and contain no letters.'; return false;
+      validationMessage.textContent = 'Phone number must be exactly 11 digits and contain no letters.'; return false;
   } else {
       validationMessage.textContent = ''; return true;
   }
