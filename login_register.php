@@ -83,6 +83,7 @@ session_start(); // Start session to access session variables
             <div class="form-group">
                 <label for="register_password">Password</label>
                 <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
+                <div id="checks" style="display:none;"></div>
                 <div id="CheckCapital" >
                 <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
                 <label style="margin:10px; margin-bottom: 0px; color:red;">Capital letter</label></div>
