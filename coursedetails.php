@@ -117,6 +117,8 @@ body {
     <br>
     <br>
     <?php
+
+    echo '
     <div class="carddetails">
     <h1>C# and .NET Development</h1>
 
@@ -156,8 +158,8 @@ body {
         title="C# and .NET Development Course Overview" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-</div>
-
+</div>'
+?>
     <?php
     include('dbConnection.php');include("navbar.php");
     ?>
@@ -171,6 +173,7 @@ body {
     <!-- cart -->
     <!-- profile -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/src.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
