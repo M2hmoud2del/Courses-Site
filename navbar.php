@@ -1,4 +1,15 @@
     <!-- Navbar -->
+    <style>#acc:hover {
+    text-decoration: none; /* Disable underline on hover */
+}
+
+#acc img:hover,
+#acc i:hover {
+    transform: none; /* Disable any transform effects */
+    filter: none; /* Remove any hover filter */
+    opacity: 1; /* Ensure opacity remains */
+}
+</style>
     <nav class="navbar navbar-danger bg-light" style="position: fixed;z-index: 1000;width: 100%;top: 0px;">
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="index.php"><img src="img\logo.png" style="width:60px; ">Coursaty </a>
@@ -14,7 +25,13 @@
               <a class="dropdown-item" href="index.php#Web Development">Web Devlovment</a>
             </div>
           </li>
-          <a class="navbar-brand fw-bold" id="acc" href="#"><i class="fa-solid fa-user "></i></a>
+          <a class="navbar-brand fw-bold" id="acc" href="#">
+              <?php if(!isset($_SESSION['user'])) { ?>
+                  <i class="fa-solid fa-user"></i>
+              <?php } else { ?>
+                  <img src="<?php echo $_SESSION['user']['userProfile']; ?>" alt="Profile Picture" style="width: 64px; height: 64px; border-radius: 100%;pointer-events: none;">
+              <?php } ?>
+          </a>
         </div>
         <div class="menu" style="display: none;height: 170px; position: absolute; margin-top: 250px;padding-right: 50px; ;right:5px;border-radius: 10px;border: 1px solid rgb(97, 97, 99) ;background-color: #d4e8eb;">
           <a class="navbar-brand fw-bold ml-3" style="font-weight: 500;margin-top:8px;" href="profile.php">Profile</a><br>
