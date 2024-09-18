@@ -36,7 +36,13 @@ session_start(); // Start session to access session variables
                             </div>
                             <div class="form-group">
                                 <label for="login-password">Password</label>
+                                <div class="input-group-append">
                                 <input type="password" class="form-control" name="password" id="login-password" placeholder="Password" required>
+                                
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                                    <i class="fa fa-eye"></i>
+                                    </button>
+                                </div>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -82,7 +88,12 @@ session_start(); // Start session to access session variables
         </div>
         <div class="form-group">
             <label for="register_password">Password</label>
-            <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
+            <div class="input-group-append">
+                <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
+                <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                  <i class="fa fa-eye"></i>
+                </button>
+            </div>
             <div id="checks" style="display:none;">
                 <div id="CheckCapital">
                     <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
@@ -104,7 +115,12 @@ session_start(); // Start session to access session variables
         </div>
         <div class="form-group">
             <label for="register_confirm_password">Confirm Password</label>
-            <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
+            <div class="input-group-append">
+                <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
+                <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                  <i class="fa fa-eye"></i>
+                </button>
+            </div>
             <small id="CheckMatching" style="display:none; margin:10px; margin-bottom: 0px; color:red;">
                 <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:10px; margin-right: 10px; font-size:small;"></i>Passwords Not Matching
             </small>
