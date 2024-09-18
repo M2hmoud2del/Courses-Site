@@ -146,14 +146,14 @@ body {
     </div>
 
     <div class="course-duration">
-        <strong>Duration:</strong>' . $data['Duration']  . '
+        <strong>Duration:</strong> ' . $data['Duration']  . '
     </div>
  <div class="course-price">
-        <strong>Date:</strong>' . $data['Date'] .'
+        <strong>Date:</strong> ' . $data['Date'] .'
         <hr>
     </div>
     <div class="course-price">
-        <strong>Price:</strong>' . $data['Price'] .'
+        <strong>Price:</strong> ' . $data['Price'] .' $
         <hr>
     </div>
 
