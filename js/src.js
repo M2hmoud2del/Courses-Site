@@ -138,12 +138,11 @@ document.querySelector('#checks').addEventListener('onfoucs',function(){
   document.querySelector('#checks').style.display = 'block';
 });
 //js for course details
-document.querySelectorAll(".card").forEach(function(card) {
-  card.addEventListener("click", function() {
-    let courseid = card.querySelector(".idcard").value;
-    document.querySelector(".key").value = courseid;
-    alert(courseid);
-    console.log("Card clicked, Course ID: " + courseid);
+document.querySelectorAll('.clickable-card').forEach(function(card) {
+  // Click event for the card (excluding enroll button)
+  card.addEventListener('click', function(event) {
+      if (!event.target.closest('.enrollbutton')) { // If click is not on the enroll button
+          card.querySelector('.details-form').submit(); // Submit the form for coursedetails
+      }
   });
 });
-

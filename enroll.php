@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $stmt->execute();
             $stmt->close();
         }
-        header('Location: coursedetails.php');
+        header('Location: index.php');
         exit();}
 }
 ?>

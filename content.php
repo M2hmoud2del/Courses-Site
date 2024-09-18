@@ -52,27 +52,29 @@ while ($course = mysqli_fetch_assoc($result)) {
     else if($course['Category'] !== "AI" &&$count==3){echo "<div class='courseType'><h1 id='Other Courses'>Other Courses</h1></div>";$count++;}
     if (!in_array($course['Course_ID'], $enrolledCourses)) {
         echo '
-        <div class="col-sm-6 col-md-4 mb-4 " id="column">
-
-               <div class="card "  style="width: 400px; height: 450px;">
-                    <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image" style="height: 150px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column">
-                        <div>
-                            <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . $course['CourseTitle'] . '</h5>
-                            <p class="card-text" style="height: 60px; overflow: hidden;">' . $course['Description'] . '</p>
-                            <p class="card-text">Instructor: ' . $course['Instructor'] . '</p>
-                            <p class="card-text">Price: $' . $course['Price'] . '</p>
-                            <form action="coursedetails.php" method="post">
-                            <button class="idcard" style="display:none;" type="submit" name="course_id" value="' . $course['Course_ID'] . '"></button>
-                        </div>
-                        <div class="mt-auto">
+        <div class="col-sm-6 col-md-4 mb-4" id="column">
+            <div class="card clickable-card" style="width: 400px; height: 450px;">
+                <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image" style="height: 150px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <div>
+                        <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . $course['CourseTitle'] . '</h5>
+                        <p class="card-text" style="height: 60px; overflow: hidden;">' . $course['Description'] . '</p>
+                        <p class="card-text">Instructor: ' . $course['Instructor'] . '</p>
+                        <p class="card-text">Price: $' . $course['Price'] . '</p>
+                        <form action="coursedetails.php" method="post" class="details-form">
+                            <input type="hidden" name="course_id" value="' . $course['Course_ID'] . '">
+                        </form>
+                    </div>
+                    <div class="mt-auto">
                         <form action="enroll.php" method="post">
-                            <button type="submit" class="btn btn-primary add-to-cart" data-name="' . $course['CourseTitle'] . '" data-price="' . $course['Price'] . '">Enroll</button>
-                        </div>
+                            <button type="submit" class="btn btn-primary add-to-cart enrollbutton" data-name="' . $course['CourseTitle'] . '" data-price="' . $course['Price'] . '">Enroll</button>
+                            <input type="hidden" name="course_id" value="' . $course['Course_ID'] . '">
+                        </form>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>';
+        
     }
 }
 
@@ -80,11 +82,12 @@ echo '  </div>
       </div>';
 ?>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll(".card").forEach(function(card) {
-            card.addEventListener("click", function() {
-                card.querySelector(".idcard").click();
-            });
-        });
+document.querySelectorAll('.clickable-card').forEach(function(card) {
+    card.addEventListener('click', function(event) {
+        if (!event.target.closest('.enrollbutton')) {
+            card.querySelector('.details-form').submit();
+        }
     });
+});
+
 </script>

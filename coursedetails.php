@@ -142,39 +142,29 @@ body {
     <h1>' . $data['CourseTitle'] . '</h1></div>
 
     <div class="instructor" >
-        <strong>Instructor:</strong> Dr. Alex Green
+        <strong>Instructor: </strong>' . $data['Instructor'] . '
     </div>
 
     <div class="course-duration">
-        <strong>Duration:</strong> 6 Weeks
+        <strong>Duration:</strong>' . $data['Date']  . '
     </div>
 
     <div class="course-price">
-        <strong>Price:</strong> $300
+        <strong>Price:</strong>' . $data['Price'] .'
+        <hr>
     </div>
 
     <div class="course-content">
         <h2>Course Content Overview</h2>
-        <p>
-            This course covers everything from the fundamentals of C# programming to more advanced topics in the .NET framework.
-            You\'ll learn C# syntax, object-oriented programming, and how to build scalable applications using ASP.NET Core.
-        </p>
-        <p>
-            The course is structured into modules that start from basic concepts and gradually move into complex topics like
-            database integration with Entity Framework and building web applications.
-        </p>
-        <p>
-            By the end of the course, you\'ll have hands-on experience with building applications, debugging code, and deploying your
-            own projects. This course is ideal for beginners and those looking to advance their skills in software development.
-        </p>
+        <p>'. $data['More_Details'] .'</p>
     </div>
 
         <div class="course-video">
         <h2>Watch the Course Overview Video</h2>
         <p>This video explains the entire course structure and what you can expect to learn:</p>
         
-        <iframe width="100%" height="450" src="https://www.youtube.com/embed/jYjNigSmPE8" 
-        title="C# and .NET Development Course Overview" frameborder="0" 
+        <iframe width="100%" height="450" src="'. $data['videoLink'] . '" 
+        title="'. $data['CourseTitle'] . 'Course Overview" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>'
