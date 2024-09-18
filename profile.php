@@ -93,11 +93,6 @@ include('DBconnection.php'); // Include the database connection file
 }
 
 .infoButtons .btn {
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    text-align: center;
     transition: all 0.3s ease;
 }
 
@@ -110,7 +105,6 @@ include('DBconnection.php'); // Include the database connection file
 
 .infoButtons .btn-info:hover {
     background: linear-gradient(135deg, #138496, #106876);
-    
 }
 
 .infoButtons .btn-danger {
