@@ -1,7 +1,30 @@
 <?php
 session_start();
 include('DBconnection.php');
-
+$courseTracks = [
+    "Programming" => [
+        "title" => "Programming",
+        "description" => "The Programming Track is ideal for anyone looking to build a strong foundation in coding, problem-solving, and logic. This track covers a variety of programming languages like Python, Java, and C++, focusing on algorithm design, data structures, and software development principles. As you progress, you will also learn about object-oriented programming and explore advanced topics such as databases, APIs, and cloud computing. Whether you are aspiring to become a software developer, mobile app developer, or game designer, this track equips you with the core skills needed for any technology-related field."
+    ],
+    "Web Development" => [
+        "title" => "Web Development",
+        "description" => "The Web Development Track is designed for individuals interested in creating dynamic and interactive websites or web applications. This track teaches both front-end and back-end development, covering essential technologies such as HTML, CSS, and JavaScript for front-end design, and Node.js, PHP, and databases for back-end development. You will also explore modern frameworks and libraries like React and Vue.js, which allow you to create scalable and responsive web applications. By the end of the track, you will be able to build full-stack applications and deploy them online, preparing you for a career in web development or freelancing."
+    ],
+    "AI" => [
+        "title" => "Artificial Intelligence (AI)",
+        "description" => "The AI Track focuses on the cutting-edge field of Artificial Intelligence, which is revolutionizing industries across the globe. This track covers essential AI concepts, including machine learning, deep learning, and neural networks. You will learn how to implement algorithms that allow machines to learn from data and make intelligent decisions. This track also introduces key tools and frameworks like TensorFlow and PyTorch, which are widely used in AI development. By mastering the AI track, you’ll be equipped to work on projects involving autonomous systems, natural language processing, and data-driven decision-making, making you highly sought after in fields like robotics, finance, and healthcare."
+    ],
+    "Other" => [
+        "title" => "Other Courses",
+        "description" => "Explore a diverse range of courses that don't fit into our main categories. These offerings cover a variety of unique topics and specialized areas, providing opportunities for you to broaden your skills and knowledge in different fields. Whether you're interested in niche subjects or emerging trends, you'll find valuable content here to enhance your learning journey."
+    ]
+];
+$printedTracks = [
+    "Programming" => false,
+    "Web Development" => false,
+    "AI" => false,
+    "Other" => false
+];
 ?>
 <!--Background Photo-->
 <div class="cont" style="margin-top: 120px;">
@@ -45,11 +68,20 @@ echo '<div class="container-fluid mt-5" id="contentContainer">
         <div class="row" id="contentRow">';
         $count =0;
 while ($course = mysqli_fetch_assoc($result)) {
-    // Check if the user is not enrolled in this course
-    if($course['Category'] === "Programming" && $count==0){echo "<div class='courseType' ><h1 id='programming'>Programming</h1></div>";$count++;}
-    else if($course['Category'] === "Web Development" && $count==1){echo "<div class='courseType'><h1 id='Web Development'>Web Development</h1></div>";$count++;}
-    else if($course['Category'] === "AI" && $count==2){echo "<div class='courseType'><h1 id='AI'>AI</h1></div>";$count++;}
-    else if($course['Category'] !== "AI" &&$count==3){echo "<div class='courseType'><h1 id='Other Courses'>Other Courses</h1></div>";$count++;}
+    if (isset($course['Category']) && isset($courseTracks[$course['Category']]) && !$printedTracks[$course['Category']]) {
+        $track = $courseTracks[$course['Category']];
+        echo "<div class='courseType' style='padding: 20px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;'>
+                <h1 id='{$track['title']}' style='font-size: 28px; color: #333;'>{$track['title']}</h1>
+                <p style='font-size: 16px; color: #666;padding-left:30px;'>{$track['description']}</p>
+              </div>";
+        $printedTracks[$course['Category']] = true; // Mark track as printed
+    } else if (!isset($courseTracks[$course['Category']]) && !$printedTracks["Other"]) {
+        echo "<div class='courseType' style='padding: 20px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;'>
+                <h1 id='Other Courses' style='font-size: 24px; color: #333;'>Other Courses</h1>
+                <p style='font-size: 16px; color: #666;padding-left:30px;'>{$courseTracks['Other']['description']}</p>
+              </div>";
+        $printedTracks["Other"] = true;
+    }
     if (!in_array($course['Course_ID'], $enrolledCourses)) {
         echo '
         <div class="col-sm-6 col-md-4 mb-4" id="column">

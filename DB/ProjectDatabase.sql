@@ -122,7 +122,6 @@ INSERT INTO `informations` (`Client_ID`, `Email`, `Username`, `Password`, `First
 (19, 'khaled@gmail.com', 'KFC', '1234', 'Khaled', 'KAF', '01015032216', 'Egypt', 'Helwan'),
 (20, 'abdo@gmail.com', 'Abdo', '1234', 'Abdo', 'Hany', '0109393193', 'Egypt', 'Helwan'),
 (21, 'mosab@gmail.com', 'mosab', '1234', 'Mosab', 'Mohamed', '012381381991', 'Helwan', 'Hel'),
-(22, 'nada@gmail.com', 'Nadosh(:', 'Pas$0rwD', 'ندوشة', 'بسيوني', '03019191030', 'Egypt', 'Helwan');
 
 --
 -- Indexes for dumped tables
