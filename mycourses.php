@@ -70,7 +70,7 @@ while($course = mysqli_fetch_assoc($result)) {
             <div class="card">
                 <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image">
                 <div class="card-body">
-                    <h5 class="card-title">' . $course['CourseTitle'] . '</h5>
+                    <h5 class="card-title text-primary">' . $course['CourseTitle'] . '</h5>
                     <p class="card-text">' . $course['Description'] . '</p>
                 <form action="coursedetails.php" class="viewcourseForm" method="post">
                     <button type="submit"  id="viewCourse" class="btn btn-primary">View Course</button>

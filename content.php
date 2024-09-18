@@ -57,7 +57,7 @@ while ($course = mysqli_fetch_assoc($result)) {
                 <img class="card-img-top" src="img/' . $course['Image'] . '" alt="' . $course['CourseTitle'] . ' Image" style="height: 150px; object-fit: cover;">
                 <div class="card-body d-flex flex-column">
                     <div>
-                        <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . $course['CourseTitle'] . '</h5>
+                        <h5 class="card-title text-primary" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . $course['CourseTitle'] . '</h5>
                         <p class="card-text" style="height: 60px; overflow: hidden;">' . $course['Description'] . '</p>
                         <p class="card-text">Instructor: ' . $course['Instructor'] . '</p>
                         <p class="card-text">Price: $' . $course['Price'] . '</p>

@@ -139,7 +139,7 @@ body {
     <div class="carddetails">
     <div class="container mb-5" ><img src="img/' . $data['Image'] .'" id="back" alt="" style="width:100%;height:300px;"></div>
     <div>
-    <h1>' . $data['CourseTitle'] . '</h1></div>
+    <h1 class="text-primary">' . $data['CourseTitle'] . '</h1></div>
 
     <div class="instructor" >
         <strong>Instructor: </strong>' . $data['Instructor'] . '
