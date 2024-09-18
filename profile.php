@@ -131,6 +131,7 @@ include('DBconnection.php'); // Include the database connection file
             <div class="para">
                 <p>First Name: <span><?php echo htmlspecialchars($user['First_Name']); ?></span></p>
                 <p>Last Name: <span><?php echo htmlspecialchars($user['Last_Name']); ?></span></p>
+                <p>Gender: <span><?php echo htmlspecialchars(ucfirst($user['gender'])); ?></span></p>
                 <p>Phone Number: <span><?php echo htmlspecialchars($user['Phone_Number']); ?></span></p>
                 <p>Email: <span><?php echo htmlspecialchars($user['Email']); ?></span></p>
                 <p>Country: <span><?php echo htmlspecialchars($user['Country']); ?></span></p>
@@ -162,6 +163,10 @@ include('DBconnection.php'); // Include the database connection file
               <div class="form-group">
                 <label for="userCountry">Country</label>
                 <input type="text" class="form-control" id="userCountry" name="Country" value="<?php echo htmlspecialchars($user['Country']); ?>" required>
+              </div>
+              <div class="form-group">
+                <label for="usergender">Gender</label>
+                <input type="text" class="form-control" id="usergender" name="gender" value="<?php echo htmlspecialchars(ucfirst($user['gender'])); ?>" required>
               </div>
             </div>
             <div class="col-md-6">
