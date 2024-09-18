@@ -170,7 +170,7 @@ body {
 </div>'
 ?>
     <?php
-    include('dbConnection.php');
+    include('dbConnection.php');include('navbar.php');
     ?>
       <input class="key" type="hidden" name="course_id" value="">
  

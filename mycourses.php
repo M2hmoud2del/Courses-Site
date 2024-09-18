@@ -72,8 +72,10 @@ while($course = mysqli_fetch_assoc($result)) {
                 <div class="card-body">
                     <h5 class="card-title">' . $course['CourseTitle'] . '</h5>
                     <p class="card-text">' . $course['Description'] . '</p>
-                    <a href="course_details.php?course_id=' . $course['Course_ID'] . '" class="btn btn-primary">View Course</a>
-                </div>
+                <form action="coursedetails.php" class="viewcourseForm" method="post">
+                    <button type="submit"  id="viewCourse" class="btn btn-primary">View Course</button>
+                    <input type="hidden" name="course_id" value="' . $course['Course_ID'] . '">
+                </div></form>   
             </div>';
 }
 
@@ -83,9 +85,15 @@ echo '
 ?>
     <?=include('footer.html');?>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="js/src.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
       <script src="js/bootstrap.js"></script>
+      <script src="js/src.js"></script>
+        <script>
+                document.querySelector('#viewCourse').addEventListener('click',function(){
+                    document.querySelector('.viewcourseForm').submit();
+                });
+
+        </script>
 </body>
 </html>
