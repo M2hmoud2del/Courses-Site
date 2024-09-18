@@ -138,8 +138,3 @@ document.querySelector('#checks').addEventListener('onfoucs',function(){
   document.querySelector('#checks').style.display = 'block';
 });
 //js for course details
-document.querySelector(".card").addEventListener("click",function(){
-  let courseid=document.querySelector(".idcard").value;
-  document.querySelector(".key").value=courseid;
-  
-});  
