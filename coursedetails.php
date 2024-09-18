@@ -146,9 +146,12 @@ body {
     </div>
 
     <div class="course-duration">
-        <strong>Duration:</strong>' . $data['Date']  . '
+        <strong>Duration:</strong>' . $data['Duration']  . '
     </div>
-
+ <div class="course-price">
+        <strong>Date:</strong>' . $data['Date'] .'
+        <hr>
+    </div>
     <div class="course-price">
         <strong>Price:</strong>' . $data['Price'] .'
         <hr>
