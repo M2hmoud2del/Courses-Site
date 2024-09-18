@@ -61,66 +61,85 @@ session_start(); // Start session to access session variables
                     
     <!-- Register Tab -->
     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-        <form method="post" id="changeInfoForm" action="login.php">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="register-first-name">First Name</label>
-                    <input type="text" class="form-control" name="first_name" id="register-first-name" placeholder="First Name" required>
+    <form method="post" id="changeInfoForm" action="login.php">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="register-first-name">First Name</label>
+                <input type="text" class="form-control" name="first_name" id="register-first-name" placeholder="First Name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="register-last-name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" id="register-last-name" placeholder="Last Name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="register-email">Email address</label>
+            <input type="email" class="form-control" name="email" id="register-email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="register-username">Username</label>
+            <input type="text" class="form-control" name="username" id="register-username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="register_password">Password</label>
+            <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
+            <div id="checks" style="display:none;">
+                <div id="CheckCapital">
+                    <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                    <label style="margin:10px; margin-bottom: 0px; color:red;">Capital letter</label>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="register-last-name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name" id="register-last-name" placeholder="Last Name" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="register-email">Email address</label>
-                <input type="email" class="form-control" name="email" id="register-email" placeholder="Enter email" required>
-            </div>
-            <div class="form-group">
-                <label for="register-username">Username</label>
-                <input type="text" class="form-control" name="username" id="register-username" placeholder="Username" required>
-            </div>
-            <div class="form-group">
-                <label for="register_password">Password</label>
-                <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
-                <div id="checks" style="display:none;">
-                <div id="CheckCapital" >
-                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
-                <label style="margin:10px; margin-bottom: 0px; color:red;">Capital letter</label></div>
                 <div id="CheckSmall">
-                <i class="fa-solid fa-circle-xmark icons"  style="color:red; margin-left:20px; font-size:small;"></i>
-                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">At least 1 digit</label></div>
+                    <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                    <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">At least 1 digit</label>
+                </div>
                 <div id="CheckComplex">
-                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
-                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Contain 1 of these characters [@$!%*?&]</label></div>
+                    <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                    <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Contain 1 of these characters [@$!%*?&]</label>
+                </div>
                 <div id="CheckLength">
-                <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
-                <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Password length more than 8 characters</label></div>
+                    <i class="fa-solid fa-circle-xmark icons" style="color:red; margin-left:20px; font-size:small;"></i>
+                    <label style="margin:10px; margin-bottom: 0px; color:red; font-size:small;">Password length more than 8 characters</label>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="register_confirm_password">Confirm Password</label>
-                <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
-                <small id="CheckMatching" style="display:none; margin:10px; margin-bottom: 0px; color:red;">
-                    <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:10px; margin-right: 10px; font-size:small;"></i>Passwords Not Matching
-                </small>
+        </div>
+        <div class="form-group">
+            <label for="register_confirm_password">Confirm Password</label>
+            <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
+            <small id="CheckMatching" style="display:none; margin:10px; margin-bottom: 0px; color:red;">
+                <i class="fa-solid fa-circle-xmark" style="color:red; margin-left:10px; margin-right: 10px; font-size:small;"></i>Passwords Not Matching
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="register-phone">Phone Number</label>
+            <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required oninput="validatePhoneNumber()">
+            <small id="phone-validation-message" class="form-text text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="register-country">Country</label>
+            <input type="text" class="form-control" name="country" id="register-country" placeholder="Country" required>
+        </div>
+        <div class="form-group">
+            <label for="register-university">University</label>
+            <input type="text" class="form-control" name="university" id="register-university" placeholder="University" required>
+        </div>
+        <!-- Enhanced Gender Section -->
+        <div class="form-group">
+            <label class="d-block">Gender</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender-male" value="male">
+                <label class="form-check-label" for="gender-male">Male</label>
             </div>
-            <div class="form-group">
-                <label for="register-phone">Phone Number</label>
-                <input type="text" class="form-control" name="phone" id="register-phone" placeholder="Phone Number" required oninput="validatePhoneNumber()">
-                <small id="phone-validation-message" class="form-text text-danger"></small>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender-female" value="female">
+                <label class="form-check-label" for="gender-female">Female</label>
             </div>
-            <div class="form-group">
-                <label for="register-country">Country</label>
-                <input type="text" class="form-control" name="country" id="register-country" placeholder="Country" required>
-            </div>
-            <div class="form-group">
-                <label for="register-university">University</label>
-                <input type="text" class="form-control" name="university" id="register-university" placeholder="University" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block mt-4" name="register">Register</button>
-        </form>
-    </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-4" name="register">Register</button>
+    </form>
+</div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
