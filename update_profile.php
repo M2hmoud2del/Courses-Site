@@ -9,9 +9,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $email = $_POST['Email'];
     $country = $_POST['Country'];
     $university = $_POST['University'];
-    $sql = "UPDATE informations SET First_Name = ?, Last_Name = ?, Phone_Number = ?, Email = ?, Country = ?, University = ? WHERE Client_ID = ?";
+    $gender = $_POST['gender'];
+    $userProfile = ($gender === 'male')? 'img/prof.webp' : 'img/proff.webp';
+    $sql = "UPDATE informations SET First_Name = ?, Last_Name = ?, Phone_Number = ?, Email = ?, Country = ?, University = ?, Gender = ?, userProfile = ? WHERE Client_ID = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssssssi', $firstName, $lastName, $phoneNumber, $email, $country, $university, $userId);
+    $stmt->bind_param('ssssssssi', $firstName, $lastName, $phoneNumber, $email, $country, $university, $gender,$userProfile, $userId);
     $stmt->execute();
     $_SESSION['user']['First_Name'] = $firstName;
     $_SESSION['user']['Last_Name'] = $lastName;
@@ -19,6 +21,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $_SESSION['user']['Email'] = $email;
     $_SESSION['user']['Country'] = $country;
     $_SESSION['user']['University'] = $university;
+    $_SESSION['user']['gender'] = $gender;
+    $_SESSION['user']['userProfile'] = $userProfile;
     header('Location: profile.php');
     exit();
 }

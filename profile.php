@@ -165,8 +165,11 @@ include('DBconnection.php'); // Include the database connection file
                 <input type="text" class="form-control" id="userCountry" name="Country" value="<?php echo htmlspecialchars($user['Country']); ?>" required>
               </div>
               <div class="form-group">
-                <label for="usergender">Gender</label>
-                <input type="text" class="form-control" id="usergender" name="gender" value="<?php echo htmlspecialchars(ucfirst($user['gender'])); ?>" required>
+                  <label for="usergender">Gender</label>
+                  <select class="form-control" id="usergender" name="gender" required>
+                      <option value="male" <?php if($user['gender'] == 'male') echo 'selected'; ?>>Male</option>
+                      <option value="female" <?php if($user['gender'] == 'female') echo 'selected'; ?>>Female</option>
+                  </select>
               </div>
             </div>
             <div class="col-md-6">

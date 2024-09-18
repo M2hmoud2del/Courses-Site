@@ -11,6 +11,7 @@ session_start(); // Start session to access session variables
     <title>Sign In / Register</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?= include("navbar.php");?>
@@ -39,7 +40,7 @@ session_start(); // Start session to access session variables
                                 <div class="input-group-append">
                                 <input type="password" class="form-control" name="password" id="login-password" placeholder="Password" required>
                                 
-                                    <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="border:none;">
                                     <i class="fa fa-eye"></i>
                                     </button>
                                 </div>
@@ -90,7 +91,7 @@ session_start(); // Start session to access session variables
             <label for="register_password">Password</label>
             <div class="input-group-append">
                 <input type="password" class="form-control" name="password" id="register_password" placeholder="Password" required>
-                <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                <button class="btn btn-outline-secondary" type="button" id="toggleRegisterPassword" style="border:none;">
                   <i class="fa fa-eye"></i>
                 </button>
             </div>
@@ -117,7 +118,7 @@ session_start(); // Start session to access session variables
             <label for="register_confirm_password">Confirm Password</label>
             <div class="input-group-append">
                 <input type="password" class="form-control" name="confirm_password" id="register_confirm_password" placeholder="Confirm Password" required>
-                <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword" style="border:none;">
+                <button class="btn btn-outline-secondary" type="button" id="toggleRegisterPasswordConfirm" style="border:none;">
                   <i class="fa fa-eye"></i>
                 </button>
             </div>
@@ -161,6 +162,9 @@ session_start(); // Start session to access session variables
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/src.js"></script>
     <script>
+togglePasswordVisibility('login-password', 'togglePassword');
+togglePasswordVisibility('register_password', 'toggleRegisterPassword');
+togglePasswordVisibility('register_confirm_password', 'toggleRegisterPasswordConfirm');
 
 document.addEventListener('DOMContentLoaded', () => {
     const RegistrationForm = document.getElementById('changeInfoForm');

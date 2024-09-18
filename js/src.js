@@ -20,7 +20,7 @@ function togglePasswordVisibility(inputFieldId, toggleButtonId) {
 togglePasswordVisibility('currentPassword', 'toggleCurrentPassword');
 togglePasswordVisibility('newPassword', 'toggleNewPassword');
 togglePasswordVisibility('confirmNewPassword', 'toggleConfirmNewPassword');
-  
+
   const passwordField = document.getElementById('newPassword');
   const confirmPasswordField = document.getElementById('confirmNewPassword');
   const strengthBar = document.getElementById('passwordStrengthBar');
@@ -85,12 +85,15 @@ togglePasswordVisibility('confirmNewPassword', 'toggleConfirmNewPassword');
   }
 // JavaScript for Change Information
 const informationForm = document.getElementById('changeInfoForm');
-const infoInputs = informationForm.querySelectorAll('input');
+const infoInputs = informationForm.querySelectorAll('input, select'); // Include select elements
 const changesMessage = document.getElementById('changesMessage');
 const initialValues = {};
+
+// Store initial values of both input and select elements
 infoInputs.forEach(input => {
     initialValues[input.id] = input.value;
 });
+
 function checkChanges() {
     let hasChanges = false;
     infoInputs.forEach(input => {
@@ -100,16 +103,31 @@ function checkChanges() {
     });
     return hasChanges;
 }
+
+// Listen for changes on both input and select elements
 infoInputs.forEach(input => {
     input.addEventListener('input', function () {
         if (checkChanges()) {
-          changesMessage.innerText = 'You have unsaved changes!';
+            changesMessage.innerText = 'You have unsaved changes!';
             changesMessage.style.display = 'block';
         } else {
             changesMessage.style.display = 'none';
         }
     });
+
+    // Add listener for 'change' event for select elements
+    if (input.tagName === 'SELECT') {
+        input.addEventListener('change', function () {
+            if (checkChanges()) {
+                changesMessage.innerText = 'You have unsaved changes!';
+                changesMessage.style.display = 'block';
+            } else {
+                changesMessage.style.display = 'none';
+            }
+        });
+    }
 });
+
 function preventInfoSubmit(event) {
     if (!checkChanges()) {
         event.preventDefault();
