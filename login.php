@@ -15,17 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $country = $_POST['country'];
         $university = $_POST['university'];
         $gender = $_POST['gender']; 
+        $userProfile = ($gender == 'male')? 'img/prof.webp' : 'img/proff.webp' ;
 
         if ($password !== $confirm_password) {
             $message = "Passwords do not match.";
         } else {
             // Prepare SQL statement
-            $sql = "INSERT INTO informations (Email, Username, Password, First_Name, Last_Name, Phone_Number, Country, University,gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+            $sql = "INSERT INTO informations (Email, Username, Password, First_Name, Last_Name, Phone_Number, Country, University,gender,userProfile) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)";
             $stmt = $conn->prepare($sql);
 
             if ($stmt) {
                 // Bind parameters
-                $stmt->bind_param("sssssssss", $email, $username, $password, $first_name, $last_name, $phone, $country, $university,$gender);
+                $stmt->bind_param("ssssssssss", $email, $username, $password, $first_name, $last_name, $phone, $country, $university,$gender,$userProfile);
                 // Execute statement
                 if ($stmt->execute()) {
                     $message = "Registration successful!";

@@ -126,7 +126,7 @@ include('DBconnection.php'); // Include the database connection file
      <?php include("navbar.php"); ?>
     <div class="outerbox mt-5 ">
         <div class="box">
-            <img src="img/prof.webp" >
+            <img src="<?=$user['userProfile'];?>" >
             <p id="username"><?php echo htmlspecialchars($user['Username']); ?></p>
             <div class="para">
                 <p>First Name: <span><?php echo htmlspecialchars($user['First_Name']); ?></span></p>
