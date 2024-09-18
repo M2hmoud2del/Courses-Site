@@ -12,9 +12,11 @@ session_start(); // Start session to access session variables
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?= include("navbar.php");?>
+    <br><br><br><br><br>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
@@ -153,6 +155,7 @@ session_start(); // Start session to access session variables
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-4" name="register">Register</button>
     </form>
+    <br><br><br><br>
 </div>
 
 

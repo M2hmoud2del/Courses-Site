@@ -121,7 +121,7 @@
     margin: 30px;
 }
 
-nav a:hover{
+nav a:not(#acc,#myco,#pro,#out):hover{
     transition: all .35s ease;
     background-color:rgb(0, 119, 255);
     color: #f7f6f6;

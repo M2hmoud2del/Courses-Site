@@ -60,7 +60,7 @@ $query = "SELECT courses.Course_ID, courses.CourseTitle, courses.Description, co
           INNER JOIN coursesmembership ON courses.Course_ID = coursesmembership.course
           WHERE coursesmembership.client = '$user_id'";
 $result = mysqli_query($conn, $query);
-
+echo '<br><br><br><br>';
 echo '
     <div class="container mt-5 bg-light text-center text-lg-start p-5" style="border-radius: 15px;">
         <div class="card-container mycourses">';
