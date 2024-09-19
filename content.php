@@ -66,7 +66,6 @@ if (isset($_SESSION['user'])) {
 
 echo '<div class="container-fluid mt-5" id="contentContainer">
         <div class="row" id="contentRow">';
-        $count =0;
 while ($course = mysqli_fetch_assoc($result)) {
     if (isset($course['Category']) && isset($courseTracks[$course['Category']]) && !$printedTracks[$course['Category']]) {
         $track = $courseTracks[$course['Category']];

@@ -6,14 +6,10 @@ if (!isset($_SESSION['user'])) {
     header('Location: login_register.php');
     exit();
 }
-
-// Ensure $user is set and not null
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+$user =  $_SESSION['user'];
 
 $passwordUpdated = isset($_SESSION['password_updated']) ? $_SESSION['password_updated'] : null;
 unset($_SESSION['password_updated']);
-
-include('DBconnection.php'); // Include the database connection file
 ?>
 <!DOCTYPE html>
 <html lang="en">

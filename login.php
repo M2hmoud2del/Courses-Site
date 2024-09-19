@@ -16,10 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $university = $_POST['university'];
         $gender = $_POST['gender']; 
         $userProfile = ($gender == 'male')? 'img/prof.webp' : 'img/proff.webp' ;
-
-        if ($password !== $confirm_password) {
-            $message = "Passwords do not match.";
-        } else {
             // Prepare SQL statement
             $sql = "INSERT INTO informations (Email, Username, Password, First_Name, Last_Name, Phone_Number, Country, University,gender,userProfile) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)";
             $stmt = $conn->prepare($sql);
@@ -37,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $message = "Error preparing statement: " . $conn->error;
             }
-        }
+        
     } elseif (isset($_POST['login'])) {
         // Login logic
         $email = $_POST['email'];
@@ -57,15 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($password === $user['Password']) {
                     // Update session with user data
                     $_SESSION['user'] = $user;
-                    $_SESSION['message']="Login Succuss";
+                    $_SESSION['message']="Login Success";
                     // Redirect to profile.php
                     header('Location: profile.php');
                     exit();
                 } else {
-                    $message = "Invalid email or password.";
+                    $message = "Invalid password.";
                 }
             } else {
-                $message = "Invalid email or password.";
+                $message = "Invalid email.";
             }
             $stmt->close();
         } else {

@@ -53,7 +53,7 @@ if (!isset($_SESSION['user'])) {
     <?=include('navbar.php');?>
     <?php
     $user = $_SESSION['user'];
-$user_id = $user['Client_ID'];
+    $user_id = $user['Client_ID'];
 
 $query = "SELECT courses.Course_ID, courses.CourseTitle, courses.Description, courses.Image 
           FROM courses
@@ -89,11 +89,5 @@ echo '
       <script src="js/jquery-3.7.1.min.js"></script>
       <script src="js/bootstrap.js"></script>
       <script src="js/src.js"></script>
-        <script>
-                document.querySelector('#viewCourse').addEventListener('click',function(){
-                    document.querySelector('.viewcourseForm').submit();
-                });
-
-        </script>
 </body>
 </html>

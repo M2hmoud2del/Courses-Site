@@ -16,12 +16,11 @@ include('DBconnection.php'); // Include the database connection file
 </head>
 <body style="background-color: rgb(232, 232, 236);">
     <?php
-    include('dbConnection.php');include("navbar.php");include("content.php");include("footer.html");
+    include("navbar.php");include("content.php");include("footer.html");
     ?>
     <!-- orderPlaced -->
     <!-- cart -->
     <!-- profile -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/src.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
