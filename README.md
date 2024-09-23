@@ -40,7 +40,7 @@
 
 1. **Clone the Repository**:
    ```
-   git clone https://github.com/M2hmoud2del/coursaty.git
+   git clone [https://github.com/M2hmoud2del/Courses-Site.git]
    ```
 2. **Database Setup**:
    - Import the provided database SQL file into your local database (e.g., MySQL).
