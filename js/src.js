@@ -51,7 +51,7 @@ togglePasswordVisibility('confirmNewPassword', 'toggleConfirmNewPassword');
   passwordField.addEventListener('input', function() {
     let strength = passwordValidation(passwordField.value);
     strengthBar.style.width = strength + '%';
-    strengthBar.setAttribute('aria-valuenow', strength);
+    // strengthBar.setAttribute('aria-valuenow', strength);
   
     if (strength < 40) {
       strengthText.innerText = 'Weak';
@@ -152,7 +152,5 @@ function validatePhoneNumber() {
       validationMessage.textContent = ''; return true;
   }
 }
-document.querySelector('#checks').addEventListener('onfoucs',function(){
-  document.querySelector('#checks').style.display = 'block';
-});
+
 //js for course details

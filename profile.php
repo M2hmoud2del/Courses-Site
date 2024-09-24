@@ -112,9 +112,6 @@ unset($_SESSION['password_updated']);
 .infoButtons .btn-danger:hover {
     background: linear-gradient(135deg, #bd2130, #a71d2a);
 }
-
-
-
     </style>
 </head>
 <body style="background-color: rgb(232, 232, 236);">

@@ -276,7 +276,7 @@ Password.addEventListener('blur',function(){
     RegistrationForm.addEventListener('submit', (event) => {
         const passwordsMatch = validateMatching();
         const passwordIsValid = validatePassword();
-        if (!passwordsMatch || !passwordIsValid) {
+        if (!passwordsMatch || !passwordIsValid || !validatePhoneNumber()) {
             event.preventDefault(); // Prevent form submission
             alert('Please correct the errors before submitting.');
         }
