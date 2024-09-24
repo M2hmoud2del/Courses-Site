@@ -50,7 +50,7 @@
 
 4. **Run the Project Locally**:
    - Use a local server (XAMPP, WAMP) to host the website.
-   - Access the website through `http://localhost/coursaty`.
+   - Access the website through `http://localhost/`.
 
 ## Project Structure
 
