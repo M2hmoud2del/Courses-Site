@@ -9,8 +9,8 @@
               Courses
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="index.php#programming">Programming</a>
-              <a class="dropdown-item" href="index.php#AI">AI</a>
+              <a class="dropdown-item" href="index.php#Programming">Programming</a>
+              <a class="dropdown-item" href="index.php#Artificial Intelligence (AI)">AI</a>
               <a class="dropdown-item" href="index.php#Web Development">Web Devlovment</a>
             </div>
           </li>
