@@ -1,5 +1,5 @@
 <?php
-akkdk
+
 session_start();
 include('DBconnection.php');
 $courseTracks = [
